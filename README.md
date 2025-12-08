@@ -2,8 +2,9 @@
   
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Tektur&weight=700&size=50&duration=1&pause=1000&color=B658F7&background=80000000&center=true&repeat=false&width=500&height=100&lines=Hi+there%2C+It's+Suyash)](https://git.io/typing-svg)
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=22&pause=1000&color=F7E511&background=80000000&center=true&multiline=true&width=500&height=100&lines=HI+%E0%A4%AE%E0%A5%88%E0%A4%82+%E0%A4%B8%E0%A4%AF%E0%A5%81%E0%A4%B6+%E0%A4%B9%E0%A5%82%E0%A4%81+%E2%80%94+%E0%A4%8F%E0%A4%95+developer+;%E0%A4%9C%E0%A5%8B+ideas+%E0%A4%95%E0%A5%8B+reality+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A4%A8%E0%A4%BE+%E0%A4%AA%E0%A4%B8%E0%A4%82%E0%A4%A6+%E0%A4%95%E0%A4%B0%E0%A4%A4%E0%A4%BE+%E0%A4%B9%E0%A5%88%E0%A5%A4+)](https://git.io/typing-svg)
+</div>
 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=24&duration=3000&pause=50&color=F7762E&background=80000000&multiline=true&repeat=false&width=700&height=500&lines=%3E%3E++My+love+for+tech+started+early%2C+after+attending+a+robotics+;summer+camp+called+%22Roboshala%22+by+IITR+in+class+6th.+I+then+joined+the;+computer+science+club+in+7th+grade%2C+where+I+was+first+introduced+to+HTML+;%26+Sololearn%2C+and+built+my+first+website.+In+8th%2C+I+joined+a+robotics+club%2C+;learned+a+lot%2C+and+later+got+the+chance+to+mentor+juniors+and+help+them;+feel+the+same+excitement!+Attending+a+robotics+competition+representing+;our+school+got+my+name+in+the+newspaper+for+the+first+time!)](https://git.io/typing-svg)
 मुझे tech, AI, automation और open-source projects पर काम करना पसंद है। सीखना, बनाना, और grow करना — यही मेरी journey है।
 
 अगर आप कुछ interesting बना रहे हैं या बनाना चाहते हैं — let’s connect!
