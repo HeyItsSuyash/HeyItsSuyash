@@ -1,27 +1,25 @@
 <div align='center'>
   
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Tektur&weight=700&size=50&duration=1&pause=1000&color=B658F7&background=80000000&center=true&repeat=false&width=600&height=100&lines=Hi+there%2C+It's+Suyash!)](https://git.io/typing-svg)
+![](https://github-profile-trophy.vercel.app/?username=TheSuyashShukla&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4)
 
 </div>
 
+<div align='right' >
 
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <img src="./hellopanda.png" width="350px"/>
+</div>
 
-<tr>
-<td width="90%">
+<div align='left' width="60%">
+  
+  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=20&duration=3000&pause=50&color=F7762E&background=80000000&multiline=true&repeat=false&width=600&height=300&lines=%3E%3E++My+love+for+tech+started+early%2C+after+attending+a+robotics+;summer+camp+called+%22Roboshala%22+by+IITR+in+class+6th.+I+then+joined+the;+computer+science+club+in+7th+grade%2C+where+I+was+first+introduced+to+HTML+;%26+Sololearn%2C+and+built+my+first+website.+In+8th%2C+I+joined+a+robotics+club%2C+;learned+a+lot%2C+and+later+got+the+chance+to+mentor+juniors+and+help+them;+feel+the+same+excitement!+Attending+a+robotics+competition+representing+;our+school+got+my+name+in+the+newspaper+for+the+first+time!)](https://git.io/typing-svg)
+<br/>
+</div>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=24&duration=3000&pause=50&color=F7762E&background=80000000&multiline=true&repeat=false&width=700&height=500&lines=%3E%3E++My+love+for+tech+started+early%2C+after+attending+a+robotics+;summer+camp+called+%22Roboshala%22+by+IITR+in+class+6th.+I+then+joined+the;+computer+science+club+in+7th+grade%2C+where+I+was+first+introduced+to+HTML+;%26+Sololearn%2C+and+built+my+first+website.+In+8th%2C+I+joined+a+robotics+club%2C+;learned+a+lot%2C+and+later+got+the+chance+to+mentor+juniors+and+help+them;+feel+the+same+excitement!+Attending+a+robotics+competition+representing+;our+school+got+my+name+in+the+newspaper+for+the+first+time!)](https://git.io/typing-svg)
-<br/><br/>
 
-</td>
-<td >
 
-<img src="./hellopanda.png" align="right" width="450px"/>
-
-</td>
-</tr>
-</table>
-
+---
+<div align="center">
 
 
 
@@ -75,5 +73,20 @@
 
   [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/#) 
 
+
+
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=TheSuyashShukla&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=TheSuyashShukla&theme=tokyonight&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=TheSuyashShukla&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+
+
+
+### 🔝 Top Contributed Repo
+![](https://github-contributor-stats.vercel.app/api?username=TheSuyashShukla&limit=5&theme=tokyonight&combine_all_yearly_contributions=true)
+
+---
+[![](https://visitcount.itsvg.in/api?id=TheSuyashShukla&icon=5&color=6)](https://visitcount.itsvg.in)
+</div>
 
 </div>
