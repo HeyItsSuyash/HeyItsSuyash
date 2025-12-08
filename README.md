@@ -1,7 +1,12 @@
 <div align='center'>
 
-<h1 align="center"><font color="yellow"> Suyash Shukla</font></h1><br><br>
-<h2 align="center"><font color="yellow"> My Socials</font></h1>
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Bitcount+Prop+Single&weight=700&size=46&pause=1000&color=F7971F&background=80000000&center=true&repeat=false&width=500&height=100&lines=Hey+There.+)](https://git.io/typing-svg)
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=22&pause=1000&color=F7E511&background=80000000&center=true&multiline=true&width=500&height=100&lines=HI+%E0%A4%AE%E0%A5%88%E0%A4%82+%E0%A4%B8%E0%A4%AF%E0%A5%81%E0%A4%B6+%E0%A4%B9%E0%A5%82%E0%A4%81+%E2%80%94+%E0%A4%8F%E0%A4%95+developer+;%E0%A4%9C%E0%A5%8B+ideas+%E0%A4%95%E0%A5%8B+reality+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A4%A8%E0%A4%BE+%E0%A4%AA%E0%A4%B8%E0%A4%82%E0%A4%A6+%E0%A4%95%E0%A4%B0%E0%A4%A4%E0%A4%BE+%E0%A4%B9%E0%A5%88%E0%A5%A4+)](https://git.io/typing-svg)
+
+मुझे tech, AI, automation और open-source projects पर काम करना पसंद है। सीखना, बनाना, और grow करना — यही मेरी journey है।
+
+अगर आप कुछ interesting बना रहे हैं या बनाना चाहते हैं — let’s connect!
 <p align="center">
   
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/knew_suyash) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/thesuyashshukla) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/ShuklaTheSuyash) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:suyashshukla0918@gmail.com) 
