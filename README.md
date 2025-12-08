@@ -1,8 +1,5 @@
 <div align='center'>
 
-  ![](https://quotes-github-readme.vercel.app/api?type=horizontal?quoteColor=B658F7&authorColor=B658F7&backgroundColor=00000000&symbolColor=B658F7?border=false
-)
-  
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Tektur&weight=700&size=50&duration=1&pause=1000&color=B658F7&background=80000000&center=true&repeat=false&width=600&height=100&lines=Hi+there%2C+It's+Suyash!)](https://git.io/typing-svg)
 ![](https://github-profile-trophy.vercel.app/?username=TheSuyashShukla&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4)
 
@@ -15,12 +12,13 @@
 
 <div align='left' width="60%">
   
-  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=20&duration=3000&pause=50&color=F7762E&background=80000000&multiline=true&repeat=false&width=600&height=300&lines=%3E%3E++My+love+for+tech+started+early%2C+after+attending+a+robotics+;summer+camp+called+%22Roboshala%22+by+IITR+in+class+6th.+I+then+joined+the;+computer+science+club+in+7th+grade%2C+where+I+was+first+introduced+to+HTML+;%26+Sololearn%2C+and+built+my+first+website.+In+8th%2C+I+joined+a+robotics+club%2C+;learned+a+lot%2C+and+later+got+the+chance+to+mentor+juniors+and+help+them;+feel+the+same+excitement!+Attending+a+robotics+competition+representing+;our+school+got+my+name+in+the+newspaper+for+the+first+time!)](https://git.io/typing-svg)
-<br/>
+  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=20&duration=3000&pause=50&color=800EF7FF&background=80000000&multiline=true&repeat=false&width=600&height=180&lines=%3E%3E++My+love+for+tech+started+early%2C+after+attending+a+robotics+;summer+camp+called+%22Roboshala%22+by+IITR+in+class+6th.+I+then+joined+the;+computer+science+club+in+7th+grade%2C+where+I+was+first+introduced+to+HTML+;%26+Sololearn%2C+and+built+my+first+website.+In+8th%2C+I+joined+a+robotics+club%2C+;learned+a+lot%2C+and+later+got+the+chance+to+mentor+juniors+and+help+them;+feel+the+same+excitement!+Attending+a+robotics+competition+representing+;our+school+got+my+name+in+the+newspaper+for+the+first+time!)](https://git.io/typing-svg)
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=20&duration=3000&pause=50&color=F71325&background=80000000&multiline=true&repeat=false&width=700&height=30&lines=%3E%3E++Phir+JEE+aa+gaya%2C+TLDR%2C+didn't+like+it+very+much..)](https://git.io/typing-svg)
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Iceland&size=20&duration=3000&pause=50&color=B658F7&background=80000000&multiline=true&repeat=false&width=700&height=500&lines=%3E%3E+Today%2C+I%E2%80%99m+a+third-year+Computer+Science+student+at+MMMUT%2C+also+;pursuing+a+BSc+in+Data+Science+from+IIT+Madras.+I+spend+my+time+;exploring+different+technologies%2C+building+projects%2C+learning+from;+mistakes%2C+and+trying+to+understand+things+a+little+better+than;+yesterday.)](https://git.io/typing-svg)
+
 </div>
-
-
-
 ---
 <div align="center">
 
