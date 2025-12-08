@@ -1,4 +1,7 @@
 <div align='center'>
+
+  ![](https://quotes-github-readme.vercel.app/api?type=horizontal?quoteColor=B658F7&authorColor=B658F7&backgroundColor=00000000&symbolColor=B658F7?border=false
+)
   
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Tektur&weight=700&size=50&duration=1&pause=1000&color=B658F7&background=80000000&center=true&repeat=false&width=600&height=100&lines=Hi+there%2C+It's+Suyash!)](https://git.io/typing-svg)
 ![](https://github-profile-trophy.vercel.app/?username=TheSuyashShukla&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4)
@@ -54,16 +57,8 @@
 
 <br/>
 
-<h2 align="center"><font color="yellow"> गिट हब पुरस्कार </font></h1>
 
-![](https://github-profile-trophy.vercel.app/?username=TheSuyashShukla&theme=maroongold&no-frame=false&no-bg=false&margin-w=4)
 
-<h2 align="center"><font color="yellow"> किसी महापुरुष ने कहा था
-
-</font></h2>
-
-![](https://quotes-github-readme.vercel.app/api?type=vertical?quoteColor=00E6FF&authorColor=BA68FF&backgroundColor=00000000&symbolColor=FFFFFF
-)
 
 
 [![](https://visitcount.itsvg.in/api?id=TheSuyashShukla&icon=5&color=7)](https://visitcount.itsvg.in)
