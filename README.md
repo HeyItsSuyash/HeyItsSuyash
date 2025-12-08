@@ -1,6 +1,6 @@
 <div align='center'>
-
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Bitcount+Prop+Single&weight=700&size=46&pause=1000&color=F7971F&background=80000000&center=true&repeat=false&width=500&height=100&lines=Hey+There.+)](https://git.io/typing-svg)
+  
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Tektur&weight=700&size=50&duration=1&pause=1000&color=B658F7&background=80000000&center=true&repeat=false&width=500&height=100&lines=Hi+there%2C+It's+Suyash)](https://git.io/typing-svg)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=22&pause=1000&color=F7E511&background=80000000&center=true&multiline=true&width=500&height=100&lines=HI+%E0%A4%AE%E0%A5%88%E0%A4%82+%E0%A4%B8%E0%A4%AF%E0%A5%81%E0%A4%B6+%E0%A4%B9%E0%A5%82%E0%A4%81+%E2%80%94+%E0%A4%8F%E0%A4%95+developer+;%E0%A4%9C%E0%A5%8B+ideas+%E0%A4%95%E0%A5%8B+reality+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AC%E0%A4%A6%E0%A4%B2%E0%A4%A8%E0%A4%BE+%E0%A4%AA%E0%A4%B8%E0%A4%82%E0%A4%A6+%E0%A4%95%E0%A4%B0%E0%A4%A4%E0%A4%BE+%E0%A4%B9%E0%A5%88%E0%A5%A4+)](https://git.io/typing-svg)
 
@@ -42,18 +42,16 @@
 
 </font></h2>
 
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=merko)
+![](https://quotes-github-readme.vercel.app/api?type=vertical?quoteColor=00E6FF&authorColor=BA68FF&backgroundColor=00000000&symbolColor=FFFFFF
+)
 
 
 [![](https://visitcount.itsvg.in/api?id=TheSuyashShukla&icon=5&color=7)](https://visitcount.itsvg.in)
 
 
-<h2 align="center"><font color="yellow"> शुभ कार्यों का समर्थन करने में योगदान दें 
-</font></h2>
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Sarpanch&size=25&duration=1&pause=1000&color=36D9F7&background=80000000&center=true&multiline=true&repeat=true&width=600&height=100&lines=%E0%A4%A4%E0%A5%8B+%E0%A4%AA%E0%A4%82%E0%A4%A1%E0%A4%BF%E0%A4%A4+%E0%A4%9C%E0%A5%80+%E0%A4%95%E0%A5%80+%E0%A4%9D%E0%A5%8B%E0%A4%B2%E0%A5%80+%E0%A4%B9%E0%A4%AE%E0%A5%87%E0%A4%B6%E0%A4%BE+%E0%A4%96%E0%A5%81%E0%A4%B2%E0%A5%80+%E0%A4%B0%E0%A4%B9%E0%A4%A4%E0%A5%80+%E0%A4%B9%E0%A5%88+!+!)](https://git.io/typing-svg)
+
+  [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/#) 
 
 
-
-  [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/#) [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/#) [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/#) [![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/#) 
 </div>
-
-
