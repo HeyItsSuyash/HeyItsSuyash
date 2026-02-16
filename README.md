@@ -50,7 +50,7 @@
 ![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=TheSuyashShukla&theme=maroongold)
 ![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=TheSuyashShukla&theme=maroongold&utcOffset=8)
 ![](https://github-contributor-stats.vercel.app/api?username=TheSuyashShukla&limit=5&theme=maroongold&combine_all_yearly_contributions=true)
-![](https://github-readme-stats.vercel.app/api?username=TheSuyashShukla&theme=maroongold&hide_border=false&include_all_commits=true&count_private=true) ![](https://github-readme-stats.vercel.app/api/top-langs/?username=TheSuyashShukla&theme=maroongold&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+![](https://github-readme-stats.vercel.app/api?username=knewsuyash&theme=maroongold&hide_border=false&include_all_commits=true&count_private=true) ![](https://github-readme-stats.vercel.app/api/top-langs/?username=knewsuyash&theme=maroongold&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 <br/>
 
 <br/>
@@ -69,9 +69,9 @@
 
 
 # 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=TheSuyashShukla&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=TheSuyashShukla&theme=tokyonight&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=TheSuyashShukla&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+![](https://github-readme-stats.vercel.app/api?username=knewsuyash&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=knewsuyash&theme=tokyonight&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=knewsuyash&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
 
 
@@ -79,7 +79,7 @@
 ![](https://github-contributor-stats.vercel.app/api?username=TheSuyashShukla&limit=5&theme=tokyonight&combine_all_yearly_contributions=true)
 
 ---
-[![](https://visitcount.itsvg.in/api?id=TheSuyashShukla&icon=5&color=6)](https://visitcount.itsvg.in)
+[![](https://visitcount.itsvg.in/api?id=knewsuyash&icon=5&color=6)](https://visitcount.itsvg.in)
 </div>
 
 </div>
