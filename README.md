@@ -1,8 +1,6 @@
 <div align='center'>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Tektur&weight=700&size=50&duration=1&pause=1000&color=B658F7&background=80000000&center=true&repeat=false&width=600&height=100&lines=Hi+there%2C+It's+Suyash!)](https://git.io/typing-svg)
-![](https://github-profile-trophy.vercel.app/?username=TheSuyashShukla&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4)
-
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Changa+One&size=80&duration=2000&pause=1000&color=F7CB3E&background=FF926579&center=true&vCenter=true&repeat=false&width=800&height=100&lines=Hey%2C+It's+Suyash!)](https://git.io/typing-svg)
 </div>
 
 <div align='right' >
