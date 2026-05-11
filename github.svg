@@ -1,0 +1,951 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1200 1500">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wrapper">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body, .wrapper {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a563d 0%, #0f6247 100%);
+            font-family: 'Fredoka', sans-serif;
+            color: #ffffff;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Dark Green Claymorphism */
+        .clay {
+            background: rgba(18, 97, 72, 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 
+                10px 10px 20px rgba(5, 45, 30, 0.3),
+                -5px -5px 15px rgba(25, 125, 90, 0.2),
+                inset 1px 1px 3px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 6px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .clay-btn {
+            background: rgba(22, 110, 80, 0.8);
+            border-radius: 12px;
+            box-shadow: 
+                4px 4px 10px rgba(5, 45, 30, 0.3),
+                -3px -3px 8px rgba(25, 125, 90, 0.3),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(15, 80, 58, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, rgba(162,217,192,0.95) 0%, rgba(200,230,215,0.95) 100%);
+            color: #0f3f2d;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #0f4f37;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.8;
+        }
+        
+        .nav-btn-green {
+            background: #0f4f37;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Hero Section */
+        .bg-text {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            font-size: 19rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 0;
+            line-height: 1;
+            letter-spacing: 15px;
+            pointer-events: none;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .hero-left {
+            flex: 1;
+            z-index: 5;
+        }
+
+        .hero-left h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .hero-left .phonetic {
+            color: #8cc3a9;
+            font-style: italic;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .hero-left .tagline {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            margin-top: 25px;
+            max-width: 350px;
+            font-weight: 400;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* Anchored to the top border of the About card */
+            bottom: -32px;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 10;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.025); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-avatar {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: bottom;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+            transform-origin: bottom center; /* This anchors the bottom! */
+            animation: breathe 5s ease-in-out infinite;
+        }
+
+        .hero-right {
+            width: 230px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: #bce0cf;
+            z-index: 5;
+            font-weight: 400;
+        }
+
+        .hero-right strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* About Me */
+        .about-card {
+            padding: 30px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            z-index: 20; /* Layered ABOVE the hero avatar */
+        }
+
+        .about-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 10px;
+        }
+        
+        .about-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .about-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            line-height: 1.7;
+            color: #bce0cf;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            max-width: 85%;
+            font-weight: 400;
+            min-height: 1.7em;
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background-color: #8cc3a9;
+            vertical-align: middle;
+            animation: blink 0.8s step-end infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .leaves-bg {
+            position: absolute;
+            right: 20px;
+            bottom: -20px;
+            opacity: 0.2;
+        }
+
+        /* Sections */
+        .section-title {
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0 10px 0;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* My Projects (Horizontal Scroll) */
+        .eco-grid {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        
+        .eco-grid::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .eco-card {
+            min-width: 320px;
+            max-width: 320px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            scroll-snap-align: start;
+        }
+
+        .eco-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .eco-card p {
+            font-size: 1rem;
+            color: #bce0cf;
+            line-height: 1.6;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-weight: 400;
+        }
+
+        .eco-card .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        .eco-card .tag {
+            font-size: 0.85rem;
+            color: #8cc3a9;
+            background: rgba(0,0,0,0.15);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .card-btn {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #e5f5ed;
+            background: rgba(255,255,255,0.08);
+            padding: 8px 14px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-weight: 500;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease;
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.12);
+        }
+        
+        .badge img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr 1.3fr;
+            gap: 20px;
+        }
+
+        .bottom-card {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bottom-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.05rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            color: #bce0cf;
+            font-weight: 400;
+        }
+
+        .stat-item span:last-child {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .lang-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: #bce0cf;
+            flex: 1;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-weight: 500;
+            width: 45%;
+        }
+        
+        .lang-item-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .pie-chart {
+            width: 90px; 
+            height: 90px; 
+            border-radius: 50%; 
+            background: conic-gradient(#3178c6 0% 33%, #f1e05a 33% 55%, #3572A5 55% 73%, #8cc3a9 73% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-right: 15px;
+        }
+        
+        .pie-chart-inner {
+            width: 50px; 
+            height: 50px; 
+            background: #0f5a40; 
+            border-radius: 50%;
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Quote */
+        .quote-box {
+            padding: 25px;
+            text-align: center;
+            border-radius: 30px;
+            font-size: 1.15rem;
+            color: #bce0cf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .quote-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 8px;
+        }
+        
+        .quote-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .gh-chart-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+      </style>
+
+      <div class="bg-text">SUYASH</div>
+
+      <div class="container">
+          <!-- Navbar -->
+          <div class="navbar">
+              <div style="display: flex; align-items: center;">
+                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" alt="Logo" style="height: 30px; object-fit: contain;" />
+              </div>
+              <div class="nav-links">
+                  <a href="#" class="nav-link">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                      Portfolio
+                  </a>
+                  <a href="#" class="nav-link">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                      Codilio
+                  </a>
+                  <a href="#" class="nav-link">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                      LinkedIn
+                  </a>
+                  <a href="#" class="nav-link">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.628 8.014c-.604 0-1.093.493-1.093 1.1 0 .604.489 1.099 1.093 1.099.6 0 1.093-.495 1.093-1.099 0-.607-.493-1.1-1.093-1.1zm8.337 3.328c-.021-.19-.044-.38-.073-.568-.027-.179-.059-.356-.095-.533l-.004-.022c-.042-.19-.088-.377-.138-.564l-.006-.021c-.056-.201-.116-.401-.183-.598-.063-.186-.13-.371-.202-.553-.082-.206-.169-.408-.261-.609-.089-.193-.184-.384-.285-.572-.114-.213-.233-.423-.36-.628l-.018-.028c-.131-.212-.269-.419-.413-.623l-.014-.02c-.156-.22-.317-.435-.486-.645-.174-.215-.353-.426-.541-.632-.191-.209-.387-.411-.589-.609l-.023-.021c-.22-.213-.448-.419-.683-.618l-.021-.018c-.244-.207-.495-.406-.753-.598l-.009-.007c-.259-.191-.525-.373-.797-.547l-.021-.013c-.287-.183-.58-.357-.879-.522l-.012-.007c-.312-.172-.63-.334-.954-.486l-.014-.006c-.336-.157-.677-.303-1.025-.438-.352-.137-.711-.262-1.074-.376l-.013-.004c-.378-.118-.761-.223-1.149-.315-.393-.094-.793-.175-1.198-.242l-.01-.002c-.416-.069-.838-.124-1.264-.165l-.015-.001c-.439-.041-.884-.067-1.334-.078h-.009c-.456-.011-.917-.008-1.381.011l-.015.001c-.456.019-.915.053-1.378.1-.448.046-.898.106-1.352.179-.441.071-.884.156-1.331.254-.424.093-.849.198-1.278.318-.403.112-.806.237-1.213.375-.386.13-.772.274-1.161.428-.363.144-.725.299-1.09.467-.344.158-.687.326-1.032.505-.316.164-.632.338-.949.522l-.003.002c-.302.176-.603.361-.905.556-.279.181-.557.371-.836.568-.261.184-.521.376-.783.576l-.012.009c-.244.186-.487.381-.73.582-.224.186-.448.378-.671.577-.206.184-.411.374-.616.568-.186.177-.372.359-.556.546-.168.171-.335.347-.5.525-.148.16-.295.323-.44.49-.129.149-.256.301-.383.456-.109.134-.216.27-.321.408l-.003.004c-1.393 1.789-2.31 3.864-2.617 6.09-.153 1.114-.153 2.253 0 3.368.307 2.226 1.224 4.302 2.617 6.09l.003.004c.105.138.212.274.321.408.127.155.254.307.383.456.145.167.292.33.44.49.184.187.37.369.556.546.205.194.41.384.616.568.223.199.447.391.671.577.243.201.486.396.73.582l.012.009c.262.2.522.392.783.576.279.197.557.387.836.568.302.195.603.38.905.556l.003.002c.317.184.633.358.949.522.345.179.688.347 1.032.505.365.168.727.323 1.09.467.389.154.775.298 1.161.428.407.138.81.263 1.213.375.429.12.854.225 1.278.318.447.098.89.183 1.331.254.454.073.904.133 1.352.179.463.047.922.081 1.378.1l.015.001c.464.019.925.022 1.381.011h.009c.45-.011.895-.037 1.334-.078l.015-.001c.426-.041.848-.096 1.264-.165l.01-.002c.405-.067.805-.148 1.198-.242.388-.092.771-.197 1.149-.315l.013-.004c.363-.114.722-.239 1.074-.376.348-.135.689-.281 1.025-.438l.014-.006c.324-.152.642-.314.954-.486l.012-.007c.299-.165.592-.339.879-.522l.021-.013c.272-.174.538-.356.797-.547l.009-.007c.258-.192.509-.391.753-.598l.021-.018c.235-.199.463-.405.683-.618l.023-.021c.202-.198.398-.4.589-.609.188-.206.367-.417.541-.632.169-.21.33-.425.486-.645l.014-.02c.144-.204.282-.411.413-.623l.018-.028c.127-.205.246-.415.36-.628.101-.188.196-.379.285-.572.092-.201.179-.403.261-.609.072-.182.139-.367.202-.553.067-.197.127-.397.183-.598l.006-.021c.05-.187.096-.374.138-.564l.004-.022c.036-.177.068-.354.095-.533.029-.188.052-.378.073-.568.043-.388.074-.777.092-1.166l.002-.033c.019-.39.028-.781.028-1.171 0-.39-.009-.781-.028-1.171l-.002-.033c-.018-.389-.049-.778-.092-1.166zm-4.707 3.328l-5.699 5.699c-.198.198-.519.198-.717 0l-2.699-2.699c-.198-.198-.198-.519 0-.717l1.054-1.054c.198-.198.519-.198.717 0l1.287 1.287 4.288-4.288c.198-.198.519-.198.717 0l1.052 1.054c.198.198.198.517 0 .718z"/></svg>
+                      Producthunt
+                  </a>
+                  <a href="https://youtube.com/@HeyItsSuyash" target="_blank" class="nav-link">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                      YT <span style="font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 5px; border-radius: 8px;">Soon</span>
+                  </a>
+              </div>
+              <a href="#" class="nav-btn-green">
+                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Fpizzafull.png&amp;w=48&amp;q=75" alt="Pizza" style="height: 20px;" />
+                  Project
+              </a>
+          </div>
+
+          <!-- Hero Section -->
+          <div class="hero">
+              <div class="hero-left">
+                  <h1 id="hero-name">Suyash</h1>
+                  <div class="phonetic">/su:jaʃ/ (proper noun)</div>
+                  
+                  <p class="tagline" id="hero-bio">A builder at heart.<br/>Turning ideas into digital ecosystems<br/>that create real impact.</p>
+                  
+                  <div class="social-icons">
+                      <a href="https://github.com/HeyItsSuyash" target="_blank" class="clay-btn social-icon">
+                          <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" />
+                      </a>
+                      <a href="https://linkedin.com/in/HeyItsSuyash" target="_blank" class="clay-btn social-icon">
+                          <img src="https://cdn.simpleicons.org/linkedin/white" alt="LinkedIn" />
+                      </a>
+                      <a href="https://x.com/HeyItsSuyash" target="_blank" class="clay-btn social-icon">
+                          <img src="https://cdn.simpleicons.org/x/white" alt="X" />
+                      </a>
+                      <a href="https://producthunt.com/@HeyItsSuyash" target="_blank" class="clay-btn social-icon">
+                          <img src="https://cdn.simpleicons.org/producthunt/white" alt="ProductHunt" />
+                      </a>
+                      <a href="mailto:contact@suyashshukla.com" class="clay-btn social-icon">
+                          <img src="https://cdn.simpleicons.org/minutemailer/white" alt="Email" />
+                      </a>
+                  </div>
+              </div>
+
+              <div class="hero-center">
+                  <img id="hero-img" src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fhero-avatar%2Fmain.png&amp;w=2048&amp;q=75" alt="Suyash Avatar" class="hero-avatar" onerror="this.style.display='none';" />
+              </div>
+
+              <div class="hero-right clay">
+                  <div>
+                      <strong>Location</strong>
+                      <span id="hero-location">India 📍</span>
+                  </div>
+                  <div>
+                      <strong>Focus</strong>
+                      AI • Automation<br/>
+                      Product • Design<br/>
+                      Ecosystems
+                  </div>
+                  <div>
+                      <strong>Currently</strong>
+                      Building, Learning<br/>
+                      &amp; Shipping
+                  </div>
+              </div>
+          </div>
+
+          <!-- About Me -->
+          <div class="about-card clay">
+              <div class="about-icon">
+                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" alt="Brand Logo" />
+              </div>
+              <div class="about-content">
+                  <h2>About Me</h2>
+                  <!-- The text is split into two separate paragraphs to make typing animation easier via JS or CSS. -->
+                  <p id="typing-text-1"></p>
+                  <p id="typing-text-2"></p>
+              </div>
+              <!-- Decorative leaves -->
+              <svg class="leaves-bg" width="160" height="160" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M50 90 C 50 60, 20 40, 20 10 C 50 10, 80 40, 50 90 Z" fill="#0c4f39" stroke="#136b4d" stroke-width="2"/>
+                  <path d="M50 90 C 50 70, 80 60, 90 30 C 70 30, 50 60, 50 90 Z" fill="#0c4f39" stroke="#136b4d" stroke-width="2"/>
+                  <path d="M50 90 C 50 70, 10 60, 10 30 C 30 30, 50 60, 50 90 Z" fill="#0c4f39" stroke="#136b4d" stroke-width="2"/>
+                  <path d="M50 90 L 50 20" stroke="#136b4d" stroke-width="2"/>
+              </svg>
+          </div>
+
+          <!-- My Projects (Horizontal Scroll) -->
+          <h2 class="section-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              My Projects
+          </h2>
+          <div class="eco-grid" id="repos-container">
+              <!-- Hardcoded fallback repositories in case JS fails -->
+              <div class="eco-card clay">
+                  <div class="eco-header">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                      EarnBuddy
+                  </div>
+                  <p>A startup &amp; freelancing ecosystem connecting builders with the right people at the right time.</p>
+                  <div class="tags">
+                      <span class="tag">#platform</span>
+                  </div>
+              </div>
+              
+              <div class="eco-card clay">
+                  <div class="eco-header">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                      YieldMind
+                  </div>
+                  <p>An AI-powered DeFi experiment platform focused on intelligent financial workflows.</p>
+                  <div class="tags">
+                      <span class="tag">#defi #ai</span>
+                  </div>
+              </div>
+              
+              <div class="eco-card clay">
+                  <div class="eco-header">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                      LIS Studio
+                  </div>
+                  <p>Laterally Inverted Studio exploring branding, automation, storytelling &amp; digital experiences.</p>
+                  <div class="tags">
+                      <span class="tag">#creative #studio</span>
+                  </div>
+              </div>
+              
+              <div class="eco-card clay">
+                  <div class="eco-header">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.5 10.5L21 3"></path><path d="M16 3h5v5"></path><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path></svg>
+                      Startup Surge
+                  </div>
+                  <p>A community initiative for startups &amp; STEM enthusiasts to learn, connect &amp; grow.</p>
+                  <div class="tags">
+                      <span class="tag">#community</span>
+                  </div>
+              </div>
+              
+              <div class="eco-card clay">
+                  <div class="eco-header">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                      Vajrita
+                  </div>
+                  <p>An emergency safety platform built for accessibility and rapid response.</p>
+                  <div class="tags">
+                      <span class="tag">#safety</span>
+                  </div>
+              </div>
+              
+              <div class="eco-card clay" style="justify-content: center; align-items: center; cursor: pointer; text-decoration: none;" onclick="window.open('https://github.com/HeyItsSuyash?tab=repositories', '_blank')">
+                  <h3 style="margin-bottom: 10px;">View More Projects</h3>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8cc3a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+          </div>
+
+          <!-- Skills & Tools -->
+          <h2 class="section-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              Skills &amp; Tools
+          </h2>
+          <!-- Unified Skills Container without Categories -->
+          <div class="skills-container clay">
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg" alt="Next.js" /> Next.js</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" /> Node.js</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" /> C++</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" /> Java</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" /> MongoDB</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" /> TensorFlow</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" /> PyTorch</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" /> FastAPI</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" /> Pandas</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" /> Docker</div>
+              <div class="badge"><span style="color:#00e5ff; font-weight:bold;">n8n</span> n8n</div>
+              <div class="badge"><span style="color:#10a37f; font-weight:bold;">OA</span> OpenAI</div>
+              <div class="badge"><span style="color:#f7931e; font-weight:bold;">Sk</span> Scikit-Learn</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" /> Figma</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" /> Blender</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> Git</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" /> Linux</div>
+              <div class="badge"><img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" alt="Vercel" /> Vercel</div>
+              <div class="badge"><span style="color:#00c7b7; font-weight:bold;">Nt</span> Netlify</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx" /> Nginx</div>
+          </div>
+
+          <!-- Bottom Grid -->
+          <div class="bottom-grid">
+              <!-- GitHub Stats -->
+              <div class="bottom-card clay">
+                  <h3>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                      GitHub Stats
+                  </h3>
+                  <div class="stats-list" id="dynamic-stats">
+                      <div class="stat-item"><span>Repositories</span> <span id="stat-repos" class="anim-counter" data-val="57">0</span></div>
+                      <div class="stat-item"><span>Followers</span> <span id="stat-followers" class="anim-counter" data-val="12">0</span></div>
+                      <div class="stat-item"><span>Stars Earned</span> <span><span id="stat-stars" class="anim-counter" data-val="320">0</span>+</span></div>
+                      <div class="stat-item"><span>Contributions</span> <span><span id="stat-issues" class="anim-counter" data-val="600">0</span>+</span></div>
+                  </div>
+                  <a href="https://github.com/HeyItsSuyash" target="_blank" class="clay-btn card-btn" style="margin-top: 20px;">Follow on GitHub</a>
+              </div>
+
+              <!-- Contribution Graph (Wavy layout!) -->
+              <div class="bottom-card clay">
+                  <h3>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                      Contribution Graph
+                  </h3>
+                  <div class="gh-chart-container" style="padding-top: 5px; flex: 1;">
+                      <img id="gh-chart-img" src="https://github-readme-activity-graph.vercel.app/graph?username=HeyItsSuyash&amp;bg_color=00000000&amp;color=8cc3a9&amp;line=8cc3a9&amp;point=fff&amp;area=true&amp;hide_border=true&amp;hide_title=true" alt="Contribution Graph" style="width: 100%; height: 100%; object-fit: contain; object-position: center; border-radius: 8px; opacity: 0.9;" />
+                  </div>
+              </div>
+
+              <!-- Top Languages -->
+              <div class="bottom-card clay">
+                  <h3>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      Top Languages
+                  </h3>
+                  <div style="display: flex; align-items: center; justify-content: flex-start; height: 100%;">
+                      <div class="pie-chart" id="lang-pie-chart">
+                          <div class="pie-chart-inner"></div>
+                      </div>
+                      <div class="lang-list" id="lang-list-container">
+                          <div class="lang-item">
+                              <div><span class="lang-item-dot" style="background-color: #3178c6;"></span>TypeScript</div>
+                              <span>33%</span>
+                          </div>
+                          <div class="lang-item">
+                              <div><span class="lang-item-dot" style="background-color: #f1e05a;"></span>JavaScript</div>
+                              <span>23%</span>
+                          </div>
+                          <div class="lang-item">
+                              <div><span class="lang-item-dot" style="background-color: #3572A5;"></span>Python</div>
+                              <span>18%</span>
+                          </div>
+                          <div class="lang-item">
+                              <div><span class="lang-item-dot" style="background-color: #8cc3a9;"></span>Other</div>
+                              <span>26%</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Quote -->
+          <div class="quote-box clay">
+              <div class="quote-icon">
+                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" alt="Brand Logo" />
+              </div>
+              <p>"Technology becomes meaningful when it helps people build, connect, learn, and grow together."</p>
+          </div>
+
+      </div>
+    </div>
+    <script>
+      // Typing effect logic
+      const text1 = "I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras. I love building products, exploring AI, designing systems, and creating communities that move forward together.";
+      const text2 = "My journey is driven by curiosity, consistency, and the belief that technology should empower people to build a better tomorrow.";
+      
+      const p1 = document.getElementById('typing-text-1');
+      const p2 = document.getElementById('typing-text-2');
+      
+      const cursor = '&lt;span class="typing-cursor"&gt;&lt;/span&gt;';
+      
+      let i = 0;
+      let j = 0;
+      
+      function typeText1() {
+          if (i &lt; text1.length) {
+              p1.innerHTML = text1.substring(0, i + 1) + cursor;
+              i++;
+              // Randomizing typing speed to make it look natural
+              setTimeout(typeText1, Math.random() * 40 + 30);
+          } else {
+              p1.innerHTML = text1; // Remove cursor
+              p2.innerHTML = cursor;
+              setTimeout(typeText2, 500); // pause
+          }
+      }
+      
+      function typeText2() {
+          if (j &lt; text2.length) {
+              p2.innerHTML = text2.substring(0, j + 1) + cursor;
+              j++;
+              setTimeout(typeText2, Math.random() * 40 + 30);
+          }
+      }
+      
+      // Animated Counter for Stats
+      function animateCounters() {
+          const counters = document.querySelectorAll('.anim-counter');
+          counters.forEach(counter => {
+              const target = +counter.getAttribute('data-val');
+              const duration = 2000; // 2 seconds
+              const increment = target / (duration / 16); 
+              let current = 0;
+              
+              const updateCounter = () => {
+                  current += increment;
+                  if (current &lt; target) {
+                      counter.innerText = Math.ceil(current);
+                      requestAnimationFrame(updateCounter);
+                  } else {
+                      counter.innerText = target;
+                  }
+              };
+              updateCounter();
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+          typeText1();
+          animateCounters();
+      });
+
+      // Fetch dynamic logic (progressive enhancement)
+      document.addEventListener('DOMContentLoaded', async () => {
+          const USERNAME = 'HeyItsSuyash';
+          try {
+              const reposRes = await fetch(`https://api.github.com/users/${USERNAME}/repos?sort=updated&amp;per_page=5`);
+              if (reposRes.ok) {
+                  const repos = await reposRes.json();
+                  const container = document.getElementById('repos-container');
+                  if(repos.length > 0) {
+                      container.innerHTML = ''; 
+                      repos.forEach(repo => {
+                          const langColors = { TypeScript: '#3178c6', JavaScript: '#f1e05a', Python: '#3572A5', Java: '#b07219' };
+                          const langColor = langColors[repo.language] || '#8cc3a9';
+                          
+                          container.innerHTML += `
+                          <div class="eco-card clay">
+                              <div class="eco-header">
+                                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                  ${repo.name}
+                              </div>
+                              <p>${repo.description || 'No description provided for this repository.'}</p>
+                              <div class="tags">
+                                  ${repo.language ? `&lt;span class="tag" style="border-left: 3px solid ${langColor};"&gt;${repo.language}&lt;/span&gt;` : ''}
+                                  &lt;span class="tag"&gt;⭐ ${repo.stargazers_count}&lt;/span&gt;
+                              </div>
+                              &lt;a href="${repo.html_url}" target="_blank" class="clay-btn card-btn"&gt;View Repository&lt;/a&gt;
+                          </div>`;
+                      });
+                      
+                      // Inject the "View More" card dynamically at the end
+                      container.innerHTML += `
+                      <div class="eco-card clay" style="justify-content: center; align-items: center; cursor: pointer; text-decoration: none;" onclick="window.open('https://github.com/HeyItsSuyash?tab=repositories', '_blank')">
+                          <h3 style="margin-bottom: 10px;">View More Projects</h3>
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8cc3a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </div>`;
+                  }
+              }
+              
+              const profileRes = await fetch(`https://api.github.com/users/${USERNAME}`);
+              if (profileRes.ok) {
+                  const profile = await profileRes.json();
+                  const repoEl = document.getElementById('stat-repos');
+                  const followerEl = document.getElementById('stat-followers');
+                  repoEl.setAttribute('data-val', profile.public_repos);
+                  followerEl.setAttribute('data-val', profile.followers);
+                  // Trigger re-animation with dynamic values
+                  animateCounters();
+              }
+          } catch(e) {
+              console.error('Dynamic fetch failed', e);
+          }
+      });
+    </script>
+  </foreignObject>
+
+</svg>
