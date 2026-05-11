@@ -1,225 +1,307 @@
 const axios = require('axios');
 
-// Helper to convert URLs to Base64 so they embed correctly in GitHub READMEs
-async function getBase64Image(url) {
-    try {
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
-        const base64 = Buffer.from(response.data, 'binary').toString('base64');
-        const mimeType = url.includes('.svg') ? 'image/svg+xml' : 'image/png';
-        return `data:${mimeType};base64,${base64}`;
-    } catch (e) {
-        console.error(`Failed to fetch image: ${url}`);
-        return ''; 
-    }
-}
-
-// Generate the complete Native SVG
 async function generateSVG(profile, repos, stats) {
-    // 1. Fetch images as Base64 to bypass GitHub camo restrictions
-    const avatarB64 = await getBase64Image("https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fhero-avatar%2Fmain.png&w=2048&q=75");
-    const logoB64 = await getBase64Image("https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&w=96&q=75");
+    // Map colors for languages
+    const langColors = { TypeScript: '#3178c6', JavaScript: '#f1e05a', Python: '#3572A5', Java: '#b07219' };
     
-    // 2. Generate Eco Cards dynamically with absolute coordinates
-    let ecoCardsSVG = '';
-    const startX = 50;
-    let currentX = startX;
-    let currentY = 820; // Y offset for projects section
-
-    repos.forEach((repo, i) => {
-        if (i % 3 === 0 && i !== 0) {
-            currentX = startX;
-            currentY += 150; // Next row
-        }
-        
-        ecoCardsSVG += `
-            <g transform="translate(${currentX}, ${currentY})">
-                <rect width="350" height="130" rx="15" fill="rgba(18, 97, 72, 0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#clay-shadow)"/>
-                <text x="20" y="35" fill="#ffffff" font-size="18" font-family="Fredoka, sans-serif" font-weight="600">${repo.name}</text>
-                <text x="20" y="65" fill="#bce0cf" font-size="14" font-family="Fredoka, sans-serif">${(repo.description || '').substring(0, 40)}...</text>
-                
-                <rect x="20" y="85" width="80" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
-                <text x="35" y="102" fill="#8cc3a9" font-size="12" font-family="Fredoka, sans-serif">${repo.language || 'Code'}</text>
-                
-                <rect x="110" y="85" width="60" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
-                <text x="125" y="102" fill="#8cc3a9" font-size="12" font-family="Fredoka, sans-serif">⭐ ${repo.stargazers_count}</text>
-            </g>
-        `;
-        currentX += 370;
+    // Generate Repo Cards HTML
+    let reposHTML = '';
+    repos.forEach(repo => {
+        const langColor = langColors[repo.language] || '#8cc3a9';
+        reposHTML += `
+        <div class="eco-card clay">
+            <div class="eco-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                ${repo.name}
+            </div>
+            <p>${repo.description || 'No description provided for this repository.'}</p>
+            <div class="tags">
+                ${repo.language ? `<span class="tag" style="border-left: 3px solid ${langColor};">${repo.language}</span>` : ''}
+                <span class="tag">⭐ ${repo.stargazers_count}</span>
+            </div>
+            <a href="${repo.html_url}" target="_parent" class="clay-btn card-btn">View Repository</a>
+        </div>`;
     });
 
+    // Add View More card
+    reposHTML += `
+    <a href="https://github.com/HeyItsSuyash?tab=repositories" target="_parent" class="eco-card clay" style="justify-content: center; align-items: center; cursor: pointer; text-decoration: none;">
+        <h3 style="margin-bottom: 10px; color: #fff;">View More Projects</h3>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8cc3a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>`;
+
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1700" viewBox="0 0 1200 1700">
-    <defs>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap');
-            
-            text {
-                font-family: 'Fredoka', sans-serif;
-            }
-            
-            @keyframes breathe {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.02); }
-                100% { transform: scale(1); }
-            }
-            
-            .animated-avatar {
-                transform-origin: 600px 700px;
-                animation: breathe 5s ease-in-out infinite;
-            }
-
-            @keyframes type {
-                from { width: 0; }
-                to { width: 900px; }
-            }
-
-            .typing-mask rect {
-                animation: type 4s steps(60, end) forwards;
-            }
-        </style>
-
-        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#0a563d"/>
-            <stop offset="100%" stop-color="#0f6247"/>
-        </linearGradient>
-
-        <linearGradient id="nav-bg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#a2d9c0"/>
-            <stop offset="100%" stop-color="#c8e6d7"/>
-        </linearGradient>
-
-        <filter id="clay-shadow" x="-10%" y="-10%" width="120%" height="120%">
-            <feDropShadow dx="8" dy="8" stdDeviation="10" flood-color="#052d1e" flood-opacity="0.4"/>
-            <feDropShadow dx="-4" dy="-4" stdDeviation="6" flood-color="#197d5a" flood-opacity="0.2"/>
-        </filter>
-
-        <!-- Mask for typing animation effect -->
-        <clipPath id="typing-clip">
-            <rect x="150" y="550" width="0" height="150" class="typing-mask">
-                <animate attributeName="width" from="0" to="900" dur="4s" fill="freeze" />
-            </rect>
-        </clipPath>
-    </defs>
-
-    <!-- Background -->
-    <rect width="1200" height="1700" fill="url(#bg)"/>
-
-    <!-- Background Giant Text -->
-    <text x="600" y="200" text-anchor="middle" fill="rgba(255,255,255,0.03)" font-size="280" font-weight="700" letter-spacing="15">SUYASH</text>
-
-    <!-- Navbar -->
-    <g transform="translate(50, 40)">
-        <rect width="1100" height="60" rx="30" fill="url(#nav-bg)" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.15))"/>
-        <image href="${logoB64}" x="20" y="15" width="30" height="30" />
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1200 1700">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wrapper">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap');
         
-        <text x="300" y="35" fill="#0f4f37" font-size="16" font-weight="600">Portfolio</text>
-        <text x="400" y="35" fill="#0f4f37" font-size="16" font-weight="600">Codilio</text>
-        <text x="500" y="35" fill="#0f4f37" font-size="16" font-weight="600">LinkedIn</text>
-        <text x="610" y="35" fill="#0f4f37" font-size="16" font-weight="600">ProductHunt</text>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        <rect x="940" y="10" width="140" height="40" rx="20" fill="#0f4f37" />
-        <text x="980" y="35" fill="#ffffff" font-size="16" font-weight="600">Project</text>
-    </g>
+        body, .wrapper {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a563d 0%, #0f6247 100%);
+            font-family: 'Fredoka', sans-serif;
+            color: #ffffff;
+            overflow-y: hidden;
+            position: relative;
+        }
 
-    <!-- Hero Left -->
-    <g transform="translate(50, 200)">
-        <text x="0" y="50" fill="#ffffff" font-size="70" font-weight="700">Suyash</text>
-        <text x="0" y="80" fill="#8cc3a9" font-size="18" font-style="italic">/su:jaʃ/ (proper noun)</text>
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .clay {
+            background: rgba(18, 97, 72, 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(5, 45, 30, 0.3), -5px -5px 15px rgba(25, 125, 90, 0.2), inset 1px 1px 3px rgba(255, 255, 255, 0.1), inset -2px -2px 6px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .clay-btn {
+            background: rgba(22, 110, 80, 0.8);
+            border-radius: 12px;
+            box-shadow: 4px 4px 10px rgba(5, 45, 30, 0.3), -3px -3px 8px rgba(25, 125, 90, 0.3), inset 1px 1px 2px rgba(255, 255, 255, 0.1), inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
         
-        <text x="0" y="130" fill="#ffffff" font-size="20">A builder at heart.</text>
-        <text x="0" y="160" fill="#ffffff" font-size="20">Turning ideas into digital ecosystems</text>
-        <text x="0" y="190" fill="#ffffff" font-size="20">that create real impact.</text>
-    </g>
-
-    <!-- Hero Right (Location / Focus) -->
-    <g transform="translate(900, 200)">
-        <rect width="250" height="250" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        .clay-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(25, 125, 90, 0.9);
+        }
         
-        <text x="25" y="45" fill="#ffffff" font-size="18" font-weight="600">Location</text>
-        <text x="25" y="70" fill="#bce0cf" font-size="16">India 📍</text>
+        .social-icon { width: 45px; height: 45px; border-radius: 50%; }
+
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 20px; border-radius: 30px;
+            background: linear-gradient(90deg, rgba(162,217,192,0.95) 0%, rgba(200,230,215,0.95) 100%);
+            color: #0f3f2d; box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            position: relative; z-index: 50;
+        }
+
+        .nav-links { display: flex; gap: 30px; font-weight: 600; font-size: 0.95rem; align-items: center; }
+        .nav-link { color: #0f4f37; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .nav-link:hover { color: #0a3323; }
+        .nav-link svg { width: 16px; height: 16px; opacity: 0.8; }
         
-        <text x="25" y="115" fill="#ffffff" font-size="18" font-weight="600">Focus</text>
-        <text x="25" y="140" fill="#bce0cf" font-size="16">AI • Automation</text>
-        <text x="25" y="160" fill="#bce0cf" font-size="16">Product • Design</text>
+        .nav-btn-green {
+            background: #0f4f37; color: #fff; padding: 8px 20px; border-radius: 20px;
+            font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 8px;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.2); transition: 0.2s;
+        }
+        .nav-btn-green:hover { background: #0a3323; transform: scale(1.05); }
 
-        <text x="25" y="205" fill="#ffffff" font-size="18" font-weight="600">Currently</text>
-        <text x="25" y="230" fill="#bce0cf" font-size="16">Building &amp; Shipping</text>
-    </g>
+        .bg-text {
+            position: absolute; top: 100px; left: 50%; transform: translateX(-50%);
+            width: 100%; text-align: center; font-size: 19rem; font-weight: 700;
+            color: rgba(255, 255, 255, 0.05); z-index: 0; line-height: 1; letter-spacing: 15px; pointer-events: none;
+        }
 
-    <!-- Hero Avatar with pure CSS Breathe Animation -->
-    <g class="animated-avatar">
-        <image href="${avatarB64}" x="350" y="150" width="500" height="500" preserveAspectRatio="xMidYMax meet"/>
-    </g>
+        .hero { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; margin-bottom: 30px; position: relative; min-height: 400px; }
+        .hero-left { flex: 1; z-index: 5; }
+        .hero-left h1 { font-size: 4.5rem; font-weight: 700; margin-bottom: 5px; }
+        .hero-left .phonetic { color: #8cc3a9; font-style: italic; margin-bottom: 5px; font-size: 1.1rem; }
+        .hero-left .tagline { font-size: 1.25rem; line-height: 1.6; margin-bottom: 30px; margin-top: 25px; max-width: 350px; font-weight: 400; }
+        .social-icons { display: flex; gap: 15px; }
 
-    <!-- About Me Section -->
-    <g transform="translate(50, 520)">
-        <rect width="1100" height="180" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        .hero-center {
+            position: absolute; left: 50%; transform: translateX(-50%); bottom: -30px;
+            width: 480px; height: 480px; display: flex; justify-content: center; align-items: flex-end; z-index: 10;
+        }
+
+        @keyframes breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        .hero-avatar { width: 100%; height: 100%; object-fit: contain; object-position: bottom; transform-origin: bottom center; animation: breathe 5s ease-in-out infinite; }
+
+        .hero-right { width: 230px; padding: 25px; display: flex; flex-direction: column; gap: 20px; font-size: 0.95rem; color: #bce0cf; z-index: 5; font-weight: 400; }
+        .hero-right strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.05rem; font-weight: 600; }
+
+        .about-card { padding: 30px; display: flex; gap: 25px; align-items: flex-start; position: relative; overflow: hidden; margin-top: 30px; z-index: 20; }
+        .about-icon { width: 55px; height: 55px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 10px; }
+        .about-icon img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+        .about-content h2 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; }
+        .about-content p { line-height: 1.7; color: #bce0cf; font-size: 1.1rem; margin-bottom: 10px; max-width: 85%; font-weight: 400; min-height: 1.7em; }
         
-        <!-- Icon -->
-        <circle cx="60" cy="60" r="30" fill="rgba(255,255,255,0.1)"/>
-        <image href="${logoB64}" x="40" y="40" width="40" height="40" />
+        .typing-cursor { display: inline-block; width: 8px; height: 1.2em; background-color: #8cc3a9; vertical-align: middle; animation: blink 0.8s step-end infinite; margin-left: 2px; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        <!-- Title -->
-        <text x="120" y="65" fill="#ffffff" font-size="28" font-weight="600">About Me</text>
-        
-        <!-- Typed out text using Native SVG clipPath animation -->
-        <g clip-path="url(#typing-clip)">
-            <text x="120" y="105" fill="#bce0cf" font-size="18">I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras.</text>
-            <text x="120" y="135" fill="#bce0cf" font-size="18">My journey is driven by curiosity, consistency, and the belief that technology empowers people.</text>
-        </g>
-    </g>
+        .section-title { font-size: 1.6rem; display: flex; align-items: center; gap: 12px; margin: 20px 0 10px 0; color: #fff; font-weight: 600; }
 
-    <!-- Dynamic Projects Section -->
-    <text x="50" y="780" fill="#ffffff" font-size="26" font-weight="600">My Projects</text>
-    ${ecoCardsSVG}
+        .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
+        .eco-card { width: 100%; padding: 25px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: 0.2s; }
+        .eco-card:hover { transform: translateY(-5px); box-shadow: 15px 15px 30px rgba(5,45,30,0.4); }
+        .eco-header { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
+        .eco-card p { font-size: 1rem; color: #bce0cf; line-height: 1.6; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-weight: 400; }
+        .eco-card .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .eco-card .tag { font-size: 0.85rem; color: #8cc3a9; background: rgba(0,0,0,0.15); padding: 4px 10px; border-radius: 12px; font-weight: 500; }
+        .card-btn { margin-top: 15px; padding: 10px; font-size: 1rem; width: 100%; font-weight: 500; text-align: center; }
 
-    <!-- Bottom Data Grid (Stats / Languages / Graph) -->
-    <g transform="translate(50, 1150)">
-        <!-- GitHub Stats -->
-        <rect x="0" y="0" width="350" height="250" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
-        
-        <text x="25" y="90" fill="#bce0cf" font-size="18">Repositories</text>
-        <text x="320" y="90" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.repos}</text>
-        
-        <text x="25" y="130" fill="#bce0cf" font-size="18">Followers</text>
-        <text x="320" y="130" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.followers}</text>
+        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; padding: 20px; align-items: center; justify-content: flex-start; }
+        .badge { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: #e5f5ed; background: rgba(255,255,255,0.08); padding: 8px 14px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); font-weight: 500; box-shadow: 2px 2px 5px rgba(0,0,0,0.15); transition: transform 0.2s ease; }
+        .badge:hover { transform: translateY(-2px); background: rgba(255,255,255,0.12); }
+        .badge img { width: 18px; height: 18px; object-fit: contain; }
 
-        <text x="25" y="170" fill="#bce0cf" font-size="18">Stars Earned</text>
-        <text x="320" y="170" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.stars}+</text>
+        .bottom-grid { display: grid; grid-template-columns: 1fr 1.6fr 1.3fr; gap: 20px; }
+        .bottom-card { padding: 25px; display: flex; flex-direction: column; }
+        .bottom-card h3 { font-size: 1.25rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .stats-list { display: flex; flex-direction: column; gap: 15px; font-size: 1.05rem; }
+        .stat-item { display: flex; justify-content: space-between; color: #bce0cf; font-weight: 400; }
+        .stat-item span:last-child { color: #fff; font-weight: 600; }
 
-        <text x="25" y="210" fill="#bce0cf" font-size="18">Contributions</text>
-        <text x="320" y="210" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.contributions}+</text>
+        .lang-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; }
+        .lang-item { display: flex; flex-direction: column; align-items: flex-start; font-weight: 500; }
+        .lang-item-header { display: flex; align-items: center; font-size: 0.95rem; color: #bce0cf; }
+        .lang-item-percent { font-size: 1.15rem; color: #fff; font-weight: 600; margin-left: 20px; margin-top: 4px; }
+        .lang-item-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 10px; }
+        .pie-chart { width: 90px; height: 90px; border-radius: 50%; background: conic-gradient(#3178c6 0% 33%, #f1e05a 33% 55%, #3572A5 55% 73%, #8cc3a9 73% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.2); margin-right: 20px; }
+        .pie-chart-inner { width: 50px; height: 50px; background: #0f5a40; border-radius: 50%; box-shadow: inset 0 3px 5px rgba(0,0,0,0.3); }
 
-        <!-- Top Languages -->
-        <rect x="380" y="0" width="720" height="250" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
-        
-        <!-- Faking a Pie Chart with pure SVG circles -->
-        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
-        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
-        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3572A5" stroke-width="25" stroke-dasharray="50 264" stroke-dashoffset="-180" />
-        
-        <circle cx="600" cy="110" r="6" fill="#3178c6"/>
-        <text x="620" y="115" fill="#bce0cf" font-size="16">TypeScript</text>
-        <text x="730" y="115" fill="#ffffff" font-size="16" font-weight="600">33%</text>
+        .quote-box { padding: 25px; text-align: center; border-radius: 30px; font-size: 1.15rem; color: #bce0cf; display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 10px; font-weight: 400; }
+        .quote-icon { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 8px; }
+        .quote-icon img { width: 100%; height: 100%; object-fit: contain; }
+      </style>
 
-        <circle cx="600" cy="150" r="6" fill="#f1e05a"/>
-        <text x="620" y="155" fill="#bce0cf" font-size="16">JavaScript</text>
-        <text x="730" y="155" fill="#ffffff" font-size="16" font-weight="600">23%</text>
+      <div class="bg-text">SUYASH</div>
 
-        <circle cx="600" cy="190" r="6" fill="#3572A5"/>
-        <text x="620" y="195" fill="#bce0cf" font-size="16">Python</text>
-        <text x="730" y="195" fill="#ffffff" font-size="16" font-weight="600">18%</text>
-    </g>
+      <div class="container">
+          <div class="navbar">
+              <div style="display: flex; align-items: center;">
+                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" alt="Logo" style="height: 30px; object-fit: contain;" />
+              </div>
+              <div class="nav-links">
+                  <a href="#" target="_parent" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>Portfolio</a>
+                  <a href="#" target="_parent" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>Codilio</a>
+                  <a href="https://linkedin.com/in/HeyItsSuyash" target="_parent" class="nav-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>LinkedIn</a>
+                  <a href="https://producthunt.com/@HeyItsSuyash" target="_parent" class="nav-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.628 8.014c-.604 0-1.093.493-1.093 1.1 0 .604.489 1.099 1.093 1.099.6 0 1.093-.495 1.093-1.099 0-.607-.493-1.1-1.093-1.1zm8.337 3.328c-.021-.19-.044-.38-.073-.568-.027-.179-.059-.356-.095-.533l-.004-.022c-.042-.19-.088-.377-.138-.564l-.006-.021c-.056-.201-.116-.401-.183-.598-.063-.186-.13-.371-.202-.553-.082-.206-.169-.408-.261-.609-.089-.193-.184-.384-.285-.572-.114-.213-.233-.423-.36-.628l-.018-.028c-.131-.212-.269-.419-.413-.623l-.014-.02c-.156-.22-.317-.435-.486-.645-.174-.215-.353-.426-.541-.632-.191-.209-.387-.411-.589-.609l-.023-.021c-.22-.213-.448-.419-.683-.618l-.021-.018c-.244-.207-.495-.406-.753-.598l-.009-.007c-.259-.191-.525-.373-.797-.547l-.021-.013c-.287-.183-.58-.357-.879-.522l-.012-.007c-.312-.172-.63-.334-.954-.486l-.014-.006c-.336-.157-.677-.303-1.025-.438-.352-.137-.711-.262-1.074-.376l-.013-.004c-.378-.118-.761-.223-1.149-.315-.393-.094-.793-.175-1.198-.242l-.01-.002c-.416-.069-.838-.124-1.264-.165l-.015-.001c-.439-.041-.884-.067-1.334-.078h-.009c-.456-.011-.917-.008-1.381.011l-.015.001c-.456.019-.915.053-1.378.1-.448.046-.898.106-1.352.179-.441.071-.884.156-1.331.254-.424.093-.849.198-1.278.318-.403.112-.806.237-1.213.375-.386.13-.772.274-1.161.428-.363.144-.725.299-1.09.467-.344.158-.687.326-1.032.505-.316.164-.632.338-.949.522l-.003.002c-.302.176-.603.361-.905.556-.279.181-.557.371-.836.568-.261.184-.521.376-.783.576l-.012.009c-.244.186-.487.381-.73.582-.224.186-.448.378-.671.577-.206.184-.411.374-.616.568-.186.177-.372.359-.556.546-.168.171-.335.347-.5.525-.148.16-.295.323-.44.49-.129.149-.256.301-.383.456-.109.134-.216.27-.321.408l-.003.004c-1.393 1.789-2.31 3.864-2.617 6.09-.153 1.114-.153 2.253 0 3.368.307 2.226 1.224 4.302 2.617 6.09l.003.004c.105.138.212.274.321.408.127.155.254.307.383.456.145.167.292.33.44.49.184.187.37.369.556.546.205.194.41.384.616.568.223.199.447.391.671.577.243.201.486.396.73.582l.012.009c.262.2.522.392.783.576.279.197.557.387.836.568.302.195.603.38.905.556l.003.002c.317.184.633.358.949.522.345.179.688.347 1.032.505.365.168.727.323 1.09.467.389.154.775.298 1.161.428.407.138.81.263 1.213.375.429.12.854.225 1.278.318.447.098.89.183 1.331.254.454.073.904.133 1.352.179.463.047.922.081 1.378.1l.015.001c.464.019.925.022 1.381.011h.009c.45-.011.895-.037 1.334-.078l.015-.001c.426-.041.848-.096 1.264-.165l.01-.002c.405-.067.805-.148 1.198-.242.388-.092.771-.197 1.149-.315l.013-.004c.363-.114.722-.239 1.074-.376.348-.135.689-.281 1.025-.438l.014-.006c.324-.152.642-.314.954-.486l.012-.007c.299-.165.592-.339.879-.522l.021-.013c.272-.174.538-.356.797-.547l.009-.007c.258-.192.509-.391.753-.598l.021-.018c.235-.199.463-.405.683-.618l.023-.021c.202-.198.398-.4.589-.609.188-.206.367-.417.541-.632.169-.21.33-.425.486-.645l.014-.02c.144-.204.282-.411.413-.623l.018-.028c.127-.205.246-.415.36-.628.101-.188.196-.379.285-.572.092-.201.179-.403.261-.609.072-.182.139-.367.202-.553.067-.197.127-.397.183-.598l.006-.021c.05-.187.096-.374.138-.564l.004-.022c.036-.177.068-.354.095-.533.029-.188.052-.378.073-.568.043-.388.074-.777.092-1.166l.002-.033c.019-.39.028-.781.028-1.171 0-.39-.009-.781-.028-1.171l-.002-.033c-.018-.389-.049-.778-.092-1.166zm-4.707 3.328l-5.699 5.699c-.198.198-.519.198-.717 0l-2.699-2.699c-.198-.198-.198-.519 0-.717l1.054-1.054c.198-.198.519-.198.717 0l1.287 1.287 4.288-4.288c.198-.198.519-.198.717 0l1.052 1.054c.198.198.198.517 0 .718z"/></svg>Producthunt</a>
+                  <a href="https://youtube.com/@HeyItsSuyash" target="_parent" class="nav-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>YT <span style="font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 5px; border-radius: 8px;">Soon</span></a>
+              </div>
+              <a href="https://suyashshukla.com" target="_parent" class="nav-btn-green">
+                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Fpizzafull.png&amp;w=48&amp;q=75" alt="Pizza" style="height: 20px;" /> Project
+              </a>
+          </div>
 
-    <!-- Footer Quote -->
-    <g transform="translate(50, 1450)">
-        <rect width="1100" height="100" rx="30" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-        <image href="${logoB64}" x="30" y="30" width="40" height="40" />
-        <text x="100" y="55" fill="#bce0cf" font-size="20">"Technology becomes meaningful when it helps people build, connect, learn, and grow together."</text>
-    </g>
+          <div class="hero">
+              <div class="hero-left">
+                  <h1>Suyash</h1>
+                  <div class="phonetic">/su:jaʃ/ (proper noun)</div>
+                  <p class="tagline">A builder at heart.<br/>Turning ideas into digital ecosystems<br/>that create real impact.</p>
+                  
+                  <div class="social-icons">
+                      <a href="https://github.com/HeyItsSuyash" target="_parent" class="clay-btn social-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                      <a href="https://linkedin.com/in/HeyItsSuyash" target="_parent" class="clay-btn social-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                      <a href="https://x.com/HeyItsSuyash" target="_parent" class="clay-btn social-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+                      <a href="mailto:contact@suyashshukla.com" target="_parent" class="clay-btn social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+                  </div>
+              </div>
+              <div class="hero-center"><img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fhero-avatar%2Fmain.png&amp;w=2048&amp;q=75" class="hero-avatar" /></div>
+              <div class="hero-right clay">
+                  <div><strong>Location</strong> India 📍</div>
+                  <div><strong>Focus</strong> AI • Automation<br/>Product • Design<br/>Ecosystems</div>
+                  <div><strong>Currently</strong> Building, Learning<br/>&amp; Shipping</div>
+              </div>
+          </div>
 
+          <div class="about-card clay">
+              <div class="about-icon"><img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" /></div>
+              <div class="about-content">
+                  <h2>About Me</h2>
+                  <p id="t1"></p>
+                  <p id="t2"></p>
+              </div>
+          </div>
+
+          <h2 class="section-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> My Projects</h2>
+          <div class="eco-grid">
+              ${reposHTML}
+          </div>
+
+          <h2 class="section-title"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> Skills &amp; Tools</h2>
+          <div class="skills-container clay">
+              <!-- Devicon based logos for full HTML compatibility -->
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /> React</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg" /> Next.js</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /> Node.js</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" /> TypeScript</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" /> Python</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" /> PostgreSQL</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" /> TensorFlow</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" /> Figma</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" /> Git</div>
+              <div class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" /> Linux</div>
+          </div>
+
+          <div class="bottom-grid">
+              <div class="bottom-card clay">
+                  <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub Stats</h3>
+                  <div class="stats-list">
+                      <div class="stat-item"><span>Repositories</span> <span class="anim-counter" data-val="${stats.repos}">0</span></div>
+                      <div class="stat-item"><span>Followers</span> <span class="anim-counter" data-val="${stats.followers}">0</span></div>
+                      <div class="stat-item"><span>Stars Earned</span> <span><span class="anim-counter" data-val="${stats.stars}">0</span>+</span></div>
+                      <div class="stat-item"><span>Contributions</span> <span><span class="anim-counter" data-val="${stats.contributions}">0</span>+</span></div>
+                  </div>
+                  <a href="https://github.com/HeyItsSuyash" target="_parent" class="clay-btn card-btn" style="margin-top: 20px;">Follow on GitHub</a>
+              </div>
+              <div class="bottom-card clay">
+                  <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Contribution Graph</h3>
+                  <div class="gh-chart-container" style="padding-top: 5px; flex: 1;">
+                      <img src="https://github-readme-activity-graph.vercel.app/graph?username=HeyItsSuyash&amp;bg_color=00000000&amp;color=8cc3a9&amp;line=8cc3a9&amp;point=fff&amp;area=true&amp;hide_border=true&amp;hide_title=true" style="width: 100%; height: 100%; object-fit: contain;" />
+                  </div>
+              </div>
+              <div class="bottom-card clay">
+                  <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Top Languages</h3>
+                  <div style="display: flex; align-items: center; justify-content: flex-start; height: 100%;">
+                      <div class="pie-chart"><div class="pie-chart-inner"></div></div>
+                      <div class="lang-list">
+                          <div class="lang-item"><div class="lang-item-header"><span class="lang-item-dot" style="background-color: #3178c6;"></span>TypeScript</div><span class="lang-item-percent">33%</span></div>
+                          <div class="lang-item"><div class="lang-item-header"><span class="lang-item-dot" style="background-color: #f1e05a;"></span>JavaScript</div><span class="lang-item-percent">23%</span></div>
+                          <div class="lang-item"><div class="lang-item-header"><span class="lang-item-dot" style="background-color: #3572A5;"></span>Python</div><span class="lang-item-percent">18%</span></div>
+                          <div class="lang-item"><div class="lang-item-header"><span class="lang-item-dot" style="background-color: #8cc3a9;"></span>Other</div><span class="lang-item-percent">26%</span></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <script>
+      const text1 = "I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras. I love building products, exploring AI, designing systems, and creating communities that move forward together.";
+      const text2 = "My journey is driven by curiosity, consistency, and the belief that technology should empower people to build a better tomorrow.";
+      const cursor = '&lt;span class="typing-cursor"&gt;&lt;/span&gt;';
+      let i = 0; let j = 0;
+      function typeText1() {
+          if (i &lt; text1.length) { document.getElementById('t1').innerHTML = text1.substring(0, i + 1) + cursor; i++; setTimeout(typeText1, Math.random() * 60 + 50); }
+          else { document.getElementById('t1').innerHTML = text1; document.getElementById('t2').innerHTML = cursor; setTimeout(typeText2, 600); }
+      }
+      function typeText2() {
+          if (j &lt; text2.length) { document.getElementById('t2').innerHTML = text2.substring(0, j + 1) + cursor; j++; setTimeout(typeText2, Math.random() * 60 + 50); }
+      }
+      function animateCounters() {
+          document.querySelectorAll('.anim-counter').forEach(counter => {
+              const target = +counter.getAttribute('data-val');
+              let current = 0;
+              const updateCounter = () => { current += target / 30; if (current &lt; target) { counter.innerText = Math.ceil(current); requestAnimationFrame(updateCounter); } else { counter.innerText = target; } };
+              updateCounter();
+          });
+      }
+      document.addEventListener('DOMContentLoaded', () => { typeText1(); animateCounters(); });
+    </script>
+  </foreignObject>
 </svg>`;
 }
 
