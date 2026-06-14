@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://suyashshukla.com"><img src="./portfolio%20hero.png" width="100%" alt="Suyash Dashboard Hero"></a>
+<a href="https://suyashshukla.com"><img src="./heroheader.png" width="100%" alt="Suyash Dashboard Hero"></a>
 <a href="https://suyashshukla.com"><img src="./about%20me.png" width="100%" alt="About Me"></a>
 
 <a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/github?v=newtheme11" width="25%"></a><a href="https://suyashshukla.com"><img src="https://heyitssuyash.onrender.com/api/social/codolio?v=newtheme11" width="25%"></a><a href="https://suyashshukla.com"><img src="https://heyitssuyash.onrender.com/api/social/stackoverflow?v=newtheme11" width="25%"></a><a href="https://suyashshukla.com"><img src="https://heyitssuyash.onrender.com/api/social/kaggle?v=newtheme11" width="25%"></a>
