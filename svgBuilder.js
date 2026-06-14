@@ -255,7 +255,7 @@ async function generateSkills() {
         { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
         { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
         { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-        { name: 'Mongoose', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg' },
+        { name: 'Astro', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg' },
         { name: 'Socket.IO', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg' },
         { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
         { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
@@ -324,7 +324,7 @@ async function generateSkills() {
 async function generateViewAllCard() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="828" height="50" viewBox="0 0 828 50">
-    <rect width="828" height="50" fill="#FFD700" rx="8" />
+    <rect width="828" height="50" fill="#FFD700" rx="25" />
     <text x="414" y="32" fill="#000000" font-size="22" font-family="'Space Grotesk', sans-serif" font-weight="700" text-anchor="middle">View All Repositories</text>
 </svg>`;
 }
