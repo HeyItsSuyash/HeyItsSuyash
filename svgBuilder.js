@@ -63,7 +63,7 @@ async function generateHero() {
 
     <!-- Right Side Info -->
     <g transform="translate(900, 150)">
-        <rect width="250" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <rect width="250" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
         <text x="25" y="45" fill="#ffffff" font-size="18" font-weight="600">Location</text>
         <text x="25" y="70" fill="#dddddd" font-size="16">India 📍</text>
         <text x="25" y="115" fill="#ffffff" font-size="18" font-weight="600">Focus</text>
@@ -86,7 +86,7 @@ async function generateAbout() {
     </clipPath>
     <rect width="1200" height="220" fill="#000000"/>
     <g transform="translate(50, 20)">
-        <rect width="1100" height="180" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <rect width="1100" height="180" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
         <circle cx="60" cy="60" r="30" fill="rgba(255,255,255,0.1)"/>
         <image href="${logoB64}" x="40" y="40" width="40" height="40" />
         <text x="120" y="65" fill="#ffffff" font-size="28" font-weight="600">About Me</text>
@@ -111,7 +111,7 @@ async function generateSocial(platform) {
     ${COMMON_DEFS}
     <rect width="285" height="100" fill="#000000"/>
     <g transform="translate(10, 10)">
-        <rect width="265" height="80" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect width="265" height="80" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
         <rect x="20" y="20" width="40" height="40" rx="20" fill="${c.color}"/>
         <text x="75" y="40" fill="#ffffff" font-size="18" font-weight="600">${c.name}</text>
         <text x="75" y="60" fill="#dddddd" font-size="14">${c.text}</text>
@@ -126,7 +126,7 @@ async function generateProjectCard(repo) {
     ${COMMON_DEFS}
     <rect width="380" height="160" fill="#000000"/>
     <g transform="translate(15, 15)">
-        <rect width="350" height="130" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#clay-shadow)"/>
+        <rect width="350" height="130" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="1" filter="url(#clay-shadow)"/>
         <text x="20" y="35" fill="#ffffff" font-size="18" font-weight="600">${(repo.name || '').substring(0, 25)}</text>
         <text x="20" y="65" fill="#dddddd" font-size="14">${(repo.description || '').substring(0, 40)}...</text>
         <rect x="20" y="85" width="80" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
@@ -144,7 +144,7 @@ async function generateStats(stats) {
     <rect width="1200" height="300" fill="#000000"/>
     
     <g transform="translate(50, 20)">
-        <rect x="0" y="0" width="350" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="0" y="0" width="350" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
         <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
         <text x="25" y="90" fill="#dddddd" font-size="18">Repositories</text>
         <text x="320" y="90" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.repos}</text>
@@ -155,7 +155,7 @@ async function generateStats(stats) {
         <text x="25" y="210" fill="#dddddd" font-size="18">Contributions</text>
         <text x="320" y="210" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.contributions}+</text>
         
-        <rect x="380" y="0" width="720" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="380" y="0" width="720" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
         <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
