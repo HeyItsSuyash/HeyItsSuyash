@@ -201,6 +201,11 @@ async function generateSkills() {
         { name: 'Nginx', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg' }
     ];
 
+    // Fetch all images concurrently to prevent GitHub Camo timeout (4 seconds)
+    const skillsWithB64 = await Promise.all(skills.map(async skill => {
+        return { ...skill, b64: await getBase64Image(skill.icon) };
+    }));
+
     let badges = '';
     const badgeWidth = 140;
     const badgeHeight = 40;
@@ -211,18 +216,17 @@ async function generateSkills() {
     const itemsPerRow = 7;
     let y = 80;
     
-    for (let i = 0; i < skills.length; i += itemsPerRow) {
-        const rowItems = skills.slice(i, i + itemsPerRow);
+    for (let i = 0; i < skillsWithB64.length; i += itemsPerRow) {
+        const rowItems = skillsWithB64.slice(i, i + itemsPerRow);
         const rowWidth = rowItems.length * badgeWidth + (rowItems.length - 1) * paddingX;
         let x = (1200 - rowWidth) / 2; // center the row
         
         for (let j = 0; j < rowItems.length; j++) {
             const skill = rowItems[j];
-            const b64 = await getBase64Image(skill.icon);
             badges += `
         <g transform="translate(${x}, ${y})">
             <rect width="140" height="36" rx="18" fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" filter="url(#clay-shadow)"/>
-            <image href="${b64}" x="15" y="8" width="20" height="20"/>
+            <image href="${skill.b64}" x="15" y="8" width="20" height="20"/>
             <text x="45" y="24" fill="#dddddd" font-size="14" font-weight="500">${skill.name}</text>
         </g>`;
             x += badgeWidth + paddingX;
