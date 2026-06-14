@@ -202,33 +202,38 @@ async function generateSkills() {
     ];
 
     let badges = '';
-    let x = 50;
-    let y = 80;
     const badgeWidth = 140;
     const badgeHeight = 40;
     const paddingX = 15;
     const paddingY = 15;
-
-    for (let i = 0; i < skills.length; i++) {
-        const skill = skills[i];
-        const b64 = await getBase64Image(skill.icon);
-        badges += `
+    
+    // Calculate rows
+    const itemsPerRow = 7;
+    let y = 80;
+    
+    for (let i = 0; i < skills.length; i += itemsPerRow) {
+        const rowItems = skills.slice(i, i + itemsPerRow);
+        const rowWidth = rowItems.length * badgeWidth + (rowItems.length - 1) * paddingX;
+        let x = (1200 - rowWidth) / 2; // center the row
+        
+        for (let j = 0; j < rowItems.length; j++) {
+            const skill = rowItems[j];
+            const b64 = await getBase64Image(skill.icon);
+            badges += `
         <g transform="translate(${x}, ${y})">
-            <rect width="130" height="36" rx="18" fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1"/>
-            <image href="${b64}" x="12" y="8" width="20" height="20"/>
-            <text x="40" y="24" fill="#dddddd" font-size="14" font-weight="500">${skill.name}</text>
+            <rect width="140" height="36" rx="18" fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" filter="url(#clay-shadow)"/>
+            <image href="${b64}" x="15" y="8" width="20" height="20"/>
+            <text x="45" y="24" fill="#dddddd" font-size="14" font-weight="500">${skill.name}</text>
         </g>`;
-        x += badgeWidth + paddingX;
-        if (x > 1050) {
-            x = 50;
-            y += badgeHeight + paddingY;
+            x += badgeWidth + paddingX;
         }
+        y += badgeHeight + paddingY;
     }
 
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y + 80}" viewBox="0 0 1200 ${y + 80}">
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y + 30}" viewBox="0 0 1200 ${y + 30}">
     ${COMMON_DEFS}
-    <rect width="1200" height="${y + 80}" fill="#000000"/>
-    <text x="50" y="45" fill="#ffffff" font-size="24" font-weight="600">Skills &amp; Tools</text>
+    <rect width="1200" height="${y + 30}" fill="#000000"/>
+    <text x="50" y="45" fill="#ffffff" font-size="28" font-weight="600">Skills &amp; Tools</text>
     ${badges}
 </svg>`;
 }
