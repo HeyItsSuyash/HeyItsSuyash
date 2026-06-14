@@ -51,6 +51,11 @@ app.get('/api/social/:platform', async (req, res) => {
     res.send(svg);
 });
 
+app.get('/api/project/view-all', async (req, res) => {
+    const svg = await generateViewAllCard();
+    res.send(svg);
+});
+
 app.get('/api/project/:index', async (req, res) => {
     const { repos } = await fetchData();
     const index = parseInt(req.params.index, 10);
@@ -65,13 +70,7 @@ app.get('/api/skills', async (req, res) => {
     res.send(svg);
 });
 app.get('/api/stats', async (req, res) => {
-    const { profile } = await fetchData();
-    const stats = {
-        repos: profile.public_repos || 25,
-        followers: profile.followers || 4,
-        stars: 320, 
-        contributions: 600 
-    };
+    const { stats } = await fetchData();
     const svg = await generateStats(stats);
     res.send(svg);
 });

@@ -1,0 +1,55 @@
+﻿
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+    
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap');
+            text { font-family: 'Fredoka', sans-serif; }
+            @keyframes breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+            .animated-avatar { transform-origin: center bottom; animation: breathe 5s ease-in-out infinite; }
+            @keyframes type { from { width: 0; } to { width: 900px; } }
+            .typing-mask rect { animation: type 4s steps(60, end) forwards; }
+        </style>
+        <filter id="clay-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="8" dy="8" stdDeviation="10" flood-color="#052d1e" flood-opacity="0.4"/>
+            <feDropShadow dx="-4" dy="-4" stdDeviation="6" flood-color="#197d5a" flood-opacity="0.2"/>
+        </filter>
+        <linearGradient id="nav-bg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#a2d9c0"/>
+            <stop offset="100%" stop-color="#c8e6d7"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="1200" height="300" fill="#000000"/>
+    
+    <g transform="translate(50, 20)">
+        <rect x="0" y="0" width="350" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
+        <text x="25" y="90" fill="#dddddd" font-size="18">Repositories</text>
+        <text x="320" y="90" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">31</text>
+        <text x="25" y="130" fill="#dddddd" font-size="18">Followers</text>
+        <text x="320" y="130" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">4</text>
+        <text x="25" y="170" fill="#dddddd" font-size="18">Stars Earned</text>
+        <text x="320" y="170" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">320+</text>
+        <text x="25" y="210" fill="#dddddd" font-size="18">Contributions</text>
+        <text x="320" y="210" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">600+</text>
+        
+        <rect x="380" y="0" width="720" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
+        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
+        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
+        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3572A5" stroke-width="25" stroke-dasharray="50 264" stroke-dashoffset="-180" />
+        
+        <circle cx="600" cy="110" r="6" fill="#3178c6"/>
+        <text x="620" y="115" fill="#dddddd" font-size="16">TypeScript</text>
+        <text x="730" y="115" fill="#ffffff" font-size="16" font-weight="600">33%</text>
+
+        <circle cx="600" cy="150" r="6" fill="#f1e05a"/>
+        <text x="620" y="155" fill="#dddddd" font-size="16">JavaScript</text>
+        <text x="730" y="155" fill="#ffffff" font-size="16" font-weight="600">23%</text>
+
+        <circle cx="600" cy="190" r="6" fill="#3572A5"/>
+        <text x="620" y="195" fill="#dddddd" font-size="16">Python</text>
+        <text x="730" y="195" fill="#ffffff" font-size="16" font-weight="600">18%</text>
+    </g>
+</svg>

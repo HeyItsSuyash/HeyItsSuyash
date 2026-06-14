@@ -14,16 +14,16 @@ async function getBase64Image(url) {
 const COMMON_DEFS = `
     <defs>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap');
-            text { font-family: 'Fredoka', sans-serif; }
+            @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap');
+            text { font-family: 'Space Grotesk', sans-serif; }
             @keyframes breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
             .animated-avatar { transform-origin: center bottom; animation: breathe 5s ease-in-out infinite; }
             @keyframes type { from { width: 0; } to { width: 900px; } }
             .typing-mask rect { animation: type 4s steps(60, end) forwards; }
         </style>
-        <filter id="clay-shadow" x="-10%" y="-10%" width="120%" height="120%">
-            <feDropShadow dx="8" dy="8" stdDeviation="10" flood-color="#052d1e" flood-opacity="0.4"/>
-            <feDropShadow dx="-4" dy="-4" stdDeviation="6" flood-color="#197d5a" flood-opacity="0.2"/>
+        <filter id="clay-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
         <linearGradient id="nav-bg" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stop-color="#a2d9c0"/>
@@ -44,7 +44,7 @@ async function generateHero() {
     
     <!-- Navbar (Static Visuals) -->
     <g transform="translate(50, 40)">
-        <rect width="1100" height="60" rx="30" fill="url(#nav-bg)"/>
+        <rect width="1100" height="60"  fill="url(#nav-bg)"/>
         <image href="${logoB64}" x="20" y="15" width="30" height="30" />
         <text x="300" y="35" fill="#0f4f37" font-size="16" font-weight="600">HeyItsSuyash GitHub</text>
     </g>
@@ -63,7 +63,7 @@ async function generateHero() {
 
     <!-- Right Side Info -->
     <g transform="translate(900, 150)">
-        <rect width="250" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
+        <rect width="250" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1"/>
         <text x="25" y="45" fill="#ffffff" font-size="18" font-weight="600">Location</text>
         <text x="25" y="70" fill="#dddddd" font-size="16">India 📍</text>
         <text x="25" y="115" fill="#ffffff" font-size="18" font-weight="600">Focus</text>
@@ -86,7 +86,7 @@ async function generateAbout() {
     </clipPath>
     <rect width="1200" height="220" fill="#000000"/>
     <g transform="translate(50, 20)">
-        <rect width="1100" height="180" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
+        <rect width="1100" height="180"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1"/>
         <circle cx="60" cy="60" r="30" fill="rgba(255,255,255,0.1)"/>
         <image href="${logoB64}" x="40" y="40" width="40" height="40" />
         <text x="120" y="65" fill="#ffffff" font-size="28" font-weight="600">About Me</text>
@@ -111,8 +111,8 @@ async function generateSocial(platform) {
     ${COMMON_DEFS}
     <rect width="285" height="100" fill="#000000"/>
     <g transform="translate(10, 10)">
-        <rect width="265" height="80" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
-        <rect x="20" y="20" width="40" height="40" rx="20" fill="${c.color}"/>
+        <rect width="265" height="80"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1"/>
+        <rect x="20" y="20" width="40" height="40"  fill="${c.color}"/>
         <text x="75" y="40" fill="#ffffff" font-size="18" font-weight="600">${c.name}</text>
         <text x="75" y="60" fill="#dddddd" font-size="14">${c.text}</text>
     </g>
@@ -126,12 +126,12 @@ async function generateProjectCard(repo) {
     ${COMMON_DEFS}
     <rect width="380" height="160" fill="#000000"/>
     <g transform="translate(15, 15)">
-        <rect width="350" height="130" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="1" filter="url(#clay-shadow)"/>
+        <rect width="350" height="130"  fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
         <text x="20" y="35" fill="#ffffff" font-size="18" font-weight="600">${(repo.name || '').substring(0, 25)}</text>
         <text x="20" y="65" fill="#dddddd" font-size="14">${(repo.description || '').substring(0, 40)}...</text>
-        <rect x="20" y="85" width="80" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
+        <rect x="20" y="85" width="80" height="25"  fill="rgba(0,0,0,0.2)" />
         <text x="35" y="102" fill="#FFD700" font-size="12">${repo.language || 'Code'}</text>
-        <rect x="110" y="85" width="60" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
+        <rect x="110" y="85" width="60" height="25"  fill="rgba(0,0,0,0.2)" />
         <text x="125" y="102" fill="#FFD700" font-size="12">⭐ ${repo.stargazers_count}</text>
     </g>
 </svg>`;
@@ -144,7 +144,7 @@ async function generateStats(stats) {
     <rect width="1200" height="300" fill="#000000"/>
     
     <g transform="translate(50, 20)">
-        <rect x="0" y="0" width="350" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
+        <rect x="0" y="0" width="350" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1"/>
         <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
         <text x="25" y="90" fill="#dddddd" font-size="18">Repositories</text>
         <text x="320" y="90" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.repos}</text>
@@ -155,7 +155,7 @@ async function generateStats(stats) {
         <text x="25" y="210" fill="#dddddd" font-size="18">Contributions</text>
         <text x="320" y="210" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.contributions}+</text>
         
-        <rect x="380" y="0" width="720" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke-width="1"/>
+        <rect x="380" y="0" width="720" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1"/>
         <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
@@ -225,7 +225,7 @@ async function generateSkills() {
             const skill = rowItems[j];
             badges += `
         <g transform="translate(${x}, ${y})">
-            <rect width="140" height="36" rx="18" fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" filter="url(#clay-shadow)"/>
+            <rect width="140" height="36"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
             <image href="${skill.b64}" x="15" y="8" width="20" height="20"/>
             <text x="45" y="24" fill="#dddddd" font-size="14" font-weight="500">${skill.name}</text>
         </g>`;
@@ -242,4 +242,18 @@ async function generateSkills() {
 </svg>`;
 }
 
-module.exports = { generateSkills,  generateHero, generateAbout, generateSocial, generateProjectCard, generateStats };
+
+async function generateViewAllCard() {
+    return `
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="160" viewBox="0 0 380 160">
+    ${COMMON_DEFS}
+    <rect width="380" height="160" fill="#000000"/>
+    <g transform="translate(15, 15)">
+        <rect width="350" height="130" fill="#000000" stroke="#FFD700" stroke-width="1" filter="url(#clay-shadow)"/>
+        <text x="175" y="65" fill="#ffffff" font-size="20" font-weight="600" text-anchor="middle">View All Repositories</text>
+        <text x="175" y="90" fill="#FFD700" font-size="24" font-weight="600" text-anchor="middle">→</text>
+    </g>
+</svg>`;
+}
+
+module.exports = { generateViewAllCard,  generateSkills,  generateHero, generateAbout, generateSocial, generateProjectCard, generateStats };

@@ -1,0 +1,33 @@
+﻿
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="160" viewBox="0 0 380 160">
+    
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;display=swap');
+            text { font-family: 'Fredoka', sans-serif; }
+            @keyframes breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+            .animated-avatar { transform-origin: center bottom; animation: breathe 5s ease-in-out infinite; }
+            @keyframes type { from { width: 0; } to { width: 900px; } }
+            .typing-mask rect { animation: type 4s steps(60, end) forwards; }
+        </style>
+        <filter id="clay-shadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="8" dy="8" stdDeviation="10" flood-color="#052d1e" flood-opacity="0.4"/>
+            <feDropShadow dx="-4" dy="-4" stdDeviation="6" flood-color="#197d5a" flood-opacity="0.2"/>
+        </filter>
+        <linearGradient id="nav-bg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#a2d9c0"/>
+            <stop offset="100%" stop-color="#c8e6d7"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="380" height="160" fill="#000000"/>
+    <g transform="translate(15, 15)">
+        <rect width="350" height="130" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#clay-shadow)"/>
+        <text x="20" y="35" fill="#ffffff" font-size="18" font-weight="600">HeyItsSuyash</text>
+        <text x="20" y="65" fill="#dddddd" font-size="14">...</text>
+        <rect x="20" y="85" width="80" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
+        <text x="35" y="102" fill="#FFD700" font-size="12">JavaScript</text>
+        <rect x="110" y="85" width="60" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
+        <text x="125" y="102" fill="#FFD700" font-size="12">⭐ 0</text>
+    </g>
+</svg>
