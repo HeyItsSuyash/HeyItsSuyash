@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { generateHero, generateAbout, generateSocial, generateProjectCard, generateStats } = require('./svgBuilder');
+const { generateHero, generateAbout, generateSocial, generateProjectCard, generateStats, generateSkills } = require('./svgBuilder');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -59,7 +59,12 @@ app.get('/api/project/:index', async (req, res) => {
     res.send(svg);
 });
 
-app.get('/api/stats', async (req, res) => {
+
+app.get('/api/skills', async (req, res) => {
+    const svg = await generateSkills();
+    res.send(svg);
+});
+\napp.get('/api/stats', async (req, res) => {
     const { profile } = await fetchData();
     const stats = {
         repos: profile.public_repos || 25,
