@@ -39,7 +39,7 @@ async function generateHero() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450">
     ${COMMON_DEFS}
-    <rect width="1200" height="450" fill="#0b583f"/>
+    <rect width="1200" height="450" fill="#000000"/>
     <text x="600" y="250" text-anchor="middle" fill="rgba(255,255,255,0.03)" font-size="280" font-weight="700" letter-spacing="15">SUYASH</text>
     
     <!-- Navbar (Static Visuals) -->
@@ -51,7 +51,7 @@ async function generateHero() {
 
     <g transform="translate(50, 180)">
         <text x="0" y="50" fill="#ffffff" font-size="70" font-weight="700">Suyash</text>
-        <text x="0" y="80" fill="#8cc3a9" font-size="18" font-style="italic">/su:jaʃ/ (proper noun)</text>
+        <text x="0" y="80" fill="#FFD700" font-size="18" font-style="italic">/su:jaʃ/ (proper noun)</text>
         <text x="0" y="130" fill="#ffffff" font-size="20">A builder at heart.</text>
         <text x="0" y="160" fill="#ffffff" font-size="20">Turning ideas into digital ecosystems.</text>
     </g>
@@ -63,13 +63,13 @@ async function generateHero() {
 
     <!-- Right Side Info -->
     <g transform="translate(900, 150)">
-        <rect width="250" height="250" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <rect width="250" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
         <text x="25" y="45" fill="#ffffff" font-size="18" font-weight="600">Location</text>
-        <text x="25" y="70" fill="#bce0cf" font-size="16">India 📍</text>
+        <text x="25" y="70" fill="#dddddd" font-size="16">India 📍</text>
         <text x="25" y="115" fill="#ffffff" font-size="18" font-weight="600">Focus</text>
-        <text x="25" y="140" fill="#bce0cf" font-size="16">AI • Automation</text>
+        <text x="25" y="140" fill="#dddddd" font-size="16">AI • Automation</text>
         <text x="25" y="205" fill="#ffffff" font-size="18" font-weight="600">Currently</text>
-        <text x="25" y="230" fill="#bce0cf" font-size="16">Building &amp; Shipping</text>
+        <text x="25" y="230" fill="#dddddd" font-size="16">Building &amp; Shipping</text>
     </g>
 </svg>`;
 }
@@ -84,15 +84,15 @@ async function generateAbout() {
             <animate attributeName="width" from="0" to="900" dur="4s" fill="freeze" />
         </rect>
     </clipPath>
-    <rect width="1200" height="220" fill="#0b583f"/>
+    <rect width="1200" height="220" fill="#000000"/>
     <g transform="translate(50, 20)">
-        <rect width="1100" height="180" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <rect width="1100" height="180" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
         <circle cx="60" cy="60" r="30" fill="rgba(255,255,255,0.1)"/>
         <image href="${logoB64}" x="40" y="40" width="40" height="40" />
         <text x="120" y="65" fill="#ffffff" font-size="28" font-weight="600">About Me</text>
         <g clip-path="url(#typing-clip)" transform="translate(120, 105)">
-            <text x="0" y="0" fill="#bce0cf" font-size="18">I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras.</text>
-            <text x="0" y="30" fill="#bce0cf" font-size="18">My journey is driven by curiosity, consistency, and the belief that technology empowers people.</text>
+            <text x="0" y="0" fill="#dddddd" font-size="18">I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras.</text>
+            <text x="0" y="30" fill="#dddddd" font-size="18">My journey is driven by curiosity, consistency, and the belief that technology empowers people.</text>
         </g>
     </g>
 </svg>`;
@@ -109,12 +109,12 @@ async function generateSocial(platform) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="285" height="100" viewBox="0 0 285 100">
     ${COMMON_DEFS}
-    <rect width="285" height="100" fill="#0b583f"/>
+    <rect width="285" height="100" fill="#000000"/>
     <g transform="translate(10, 10)">
-        <rect width="265" height="80" rx="15" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect width="265" height="80" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
         <rect x="20" y="20" width="40" height="40" rx="20" fill="${c.color}"/>
         <text x="75" y="40" fill="#ffffff" font-size="18" font-weight="600">${c.name}</text>
-        <text x="75" y="60" fill="#bce0cf" font-size="14">${c.text}</text>
+        <text x="75" y="60" fill="#dddddd" font-size="14">${c.text}</text>
     </g>
 </svg>`;
 }
@@ -124,15 +124,15 @@ async function generateProjectCard(repo) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160" viewBox="0 0 380 160">
     ${COMMON_DEFS}
-    <rect width="380" height="160" fill="#0b583f"/>
+    <rect width="380" height="160" fill="#000000"/>
     <g transform="translate(15, 15)">
-        <rect width="350" height="130" rx="15" fill="rgba(18, 97, 72, 0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#clay-shadow)"/>
+        <rect width="350" height="130" rx="15" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#clay-shadow)"/>
         <text x="20" y="35" fill="#ffffff" font-size="18" font-weight="600">${(repo.name || '').substring(0, 25)}</text>
-        <text x="20" y="65" fill="#bce0cf" font-size="14">${(repo.description || '').substring(0, 40)}...</text>
+        <text x="20" y="65" fill="#dddddd" font-size="14">${(repo.description || '').substring(0, 40)}...</text>
         <rect x="20" y="85" width="80" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
-        <text x="35" y="102" fill="#8cc3a9" font-size="12">${repo.language || 'Code'}</text>
+        <text x="35" y="102" fill="#FFD700" font-size="12">${repo.language || 'Code'}</text>
         <rect x="110" y="85" width="60" height="25" rx="12" fill="rgba(0,0,0,0.2)" />
-        <text x="125" y="102" fill="#8cc3a9" font-size="12">⭐ ${repo.stargazers_count}</text>
+        <text x="125" y="102" fill="#FFD700" font-size="12">⭐ ${repo.stargazers_count}</text>
     </g>
 </svg>`;
 }
@@ -141,36 +141,36 @@ async function generateStats(stats) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
     ${COMMON_DEFS}
-    <rect width="1200" height="300" fill="#0b583f"/>
+    <rect width="1200" height="300" fill="#000000"/>
     
     <g transform="translate(50, 20)">
-        <rect x="0" y="0" width="350" height="250" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="0" y="0" width="350" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
         <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
-        <text x="25" y="90" fill="#bce0cf" font-size="18">Repositories</text>
+        <text x="25" y="90" fill="#dddddd" font-size="18">Repositories</text>
         <text x="320" y="90" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.repos}</text>
-        <text x="25" y="130" fill="#bce0cf" font-size="18">Followers</text>
+        <text x="25" y="130" fill="#dddddd" font-size="18">Followers</text>
         <text x="320" y="130" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.followers}</text>
-        <text x="25" y="170" fill="#bce0cf" font-size="18">Stars Earned</text>
+        <text x="25" y="170" fill="#dddddd" font-size="18">Stars Earned</text>
         <text x="320" y="170" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.stars}+</text>
-        <text x="25" y="210" fill="#bce0cf" font-size="18">Contributions</text>
+        <text x="25" y="210" fill="#dddddd" font-size="18">Contributions</text>
         <text x="320" y="210" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.contributions}+</text>
         
-        <rect x="380" y="0" width="720" height="250" rx="20" fill="rgba(18, 97, 72, 0.5)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="380" y="0" width="720" height="250" rx="20" fill="#000000" stroke="rgba(255,215,0,0.3)" filter="url(#clay-shadow)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
         <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3572A5" stroke-width="25" stroke-dasharray="50 264" stroke-dashoffset="-180" />
         
         <circle cx="600" cy="110" r="6" fill="#3178c6"/>
-        <text x="620" y="115" fill="#bce0cf" font-size="16">TypeScript</text>
+        <text x="620" y="115" fill="#dddddd" font-size="16">TypeScript</text>
         <text x="730" y="115" fill="#ffffff" font-size="16" font-weight="600">33%</text>
 
         <circle cx="600" cy="150" r="6" fill="#f1e05a"/>
-        <text x="620" y="155" fill="#bce0cf" font-size="16">JavaScript</text>
+        <text x="620" y="155" fill="#dddddd" font-size="16">JavaScript</text>
         <text x="730" y="155" fill="#ffffff" font-size="16" font-weight="600">23%</text>
 
         <circle cx="600" cy="190" r="6" fill="#3572A5"/>
-        <text x="620" y="195" fill="#bce0cf" font-size="16">Python</text>
+        <text x="620" y="195" fill="#dddddd" font-size="16">Python</text>
         <text x="730" y="195" fill="#ffffff" font-size="16" font-weight="600">18%</text>
     </g>
 </svg>`;

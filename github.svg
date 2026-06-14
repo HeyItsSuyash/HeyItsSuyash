@@ -13,7 +13,7 @@
         body, .wrapper {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0a563d 0%, #0f6247 100%);
+            background: #000000;
             font-family: 'Fredoka', sans-serif;
             color: #ffffff;
             overflow-y: auto;
@@ -33,19 +33,19 @@
 
         /* Dark Green Claymorphism */
         .clay {
-            background: rgba(18, 97, 72, 0.5);
+            background: #000000;
             backdrop-filter: blur(12px);
             border-radius: 20px;
             box-shadow: 
-                10px 10px 20px rgba(5, 45, 30, 0.3),
-                -5px -5px 15px rgba(25, 125, 90, 0.2),
+                10px 10px 20px rgba(0, 0, 0, 0.5),
+                -5px -5px 15px rgba(20, 20, 20, 0.5),
                 inset 1px 1px 3px rgba(255, 255, 255, 0.1),
                 inset -2px -2px 6px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .clay-btn {
-            background: rgba(22, 110, 80, 0.8);
+            background: #FFD700; color: #000;
             border-radius: 12px;
             box-shadow: 
                 4px 4px 10px rgba(5, 45, 30, 0.3),
@@ -55,7 +55,7 @@
             transition: all 0.2s ease;
             cursor: pointer;
             text-decoration: none;
-            color: #fff;
+            color: #ffffff;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -68,7 +68,7 @@
             border-radius: 50%;
             background: rgba(15, 80, 58, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #fff;
+            color: #ffffff;
             z-index: 50;
             display: flex;
             align-items: center;
@@ -120,7 +120,7 @@
         
         .nav-btn-green {
             background: #0f4f37;
-            color: #fff;
+            color: #ffffff;
             padding: 8px 20px;
             border-radius: 20px;
             font-weight: 600;
@@ -169,7 +169,7 @@
         }
 
         .hero-left .phonetic {
-            color: #8cc3a9;
+            color: #FFD700;
             font-style: italic;
             margin-bottom: 5px;
             font-size: 1.1rem;
@@ -226,13 +226,13 @@
             flex-direction: column;
             gap: 20px;
             font-size: 0.95rem;
-            color: #bce0cf;
+            color: #dddddd;
             z-index: 5;
             font-weight: 400;
         }
 
         .hero-right strong {
-            color: #fff;
+            color: #ffffff;
             display: block;
             margin-bottom: 5px;
             font-size: 1.05rem;
@@ -278,7 +278,7 @@
 
         .about-content p {
             line-height: 1.7;
-            color: #bce0cf;
+            color: #dddddd;
             font-size: 1.1rem;
             margin-bottom: 10px;
             max-width: 85%;
@@ -290,7 +290,7 @@
             display: inline-block;
             width: 8px;
             height: 1.2em;
-            background-color: #8cc3a9;
+            background-color: #FFD700;
             vertical-align: middle;
             animation: blink 0.8s step-end infinite;
             margin-left: 2px;
@@ -315,7 +315,7 @@
             align-items: center;
             gap: 12px;
             margin: 20px 0 10px 0;
-            color: #fff;
+            color: #ffffff;
             font-weight: 600;
         }
 
@@ -350,12 +350,12 @@
             font-weight: 600;
             font-size: 1.3rem;
             margin-bottom: 5px;
-            color: #fff;
+            color: #ffffff;
         }
 
         .eco-card p {
             font-size: 1rem;
-            color: #bce0cf;
+            color: #dddddd;
             line-height: 1.6;
             flex: 1;
             display: -webkit-box;
@@ -374,7 +374,7 @@
         
         .eco-card .tag {
             font-size: 0.85rem;
-            color: #8cc3a9;
+            color: #FFD700;
             background: rgba(0,0,0,0.15);
             padding: 4px 10px;
             border-radius: 12px;
@@ -457,12 +457,12 @@
         .stat-item {
             display: flex;
             justify-content: space-between;
-            color: #bce0cf;
+            color: #dddddd;
             font-weight: 400;
         }
 
         .stat-item span:last-child {
-            color: #fff;
+            color: #ffffff;
             font-weight: 600;
         }
 
@@ -472,7 +472,7 @@
             flex-wrap: wrap;
             gap: 12px;
             font-size: 1.05rem;
-            color: #bce0cf;
+            color: #dddddd;
             flex: 1;
         }
 
@@ -519,7 +519,7 @@
             text-align: center;
             border-radius: 30px;
             font-size: 1.15rem;
-            color: #bce0cf;
+            color: #dddddd;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -555,113 +555,13 @@
         }
       </style>
 
-      <div class="bg-text">SUYASH</div>
+      
 
       <div class="container">
           <!-- Navbar -->
-          <div class="navbar">
-              <div style="display: flex; align-items: center;">
-                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" alt="Logo" style="height: 30px; object-fit: contain;" />
-              </div>
-              <div class="nav-links">
-                  <a href="#" class="nav-link">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                      Portfolio
-                  </a>
-                  <a href="#" class="nav-link">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                      Codilio
-                  </a>
-                  <a href="#" class="nav-link">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                      LinkedIn
-                  </a>
-                  <a href="#" class="nav-link">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.628 8.014c-.604 0-1.093.493-1.093 1.1 0 .604.489 1.099 1.093 1.099.6 0 1.093-.495 1.093-1.099 0-.607-.493-1.1-1.093-1.1zm8.337 3.328c-.021-.19-.044-.38-.073-.568-.027-.179-.059-.356-.095-.533l-.004-.022c-.042-.19-.088-.377-.138-.564l-.006-.021c-.056-.201-.116-.401-.183-.598-.063-.186-.13-.371-.202-.553-.082-.206-.169-.408-.261-.609-.089-.193-.184-.384-.285-.572-.114-.213-.233-.423-.36-.628l-.018-.028c-.131-.212-.269-.419-.413-.623l-.014-.02c-.156-.22-.317-.435-.486-.645-.174-.215-.353-.426-.541-.632-.191-.209-.387-.411-.589-.609l-.023-.021c-.22-.213-.448-.419-.683-.618l-.021-.018c-.244-.207-.495-.406-.753-.598l-.009-.007c-.259-.191-.525-.373-.797-.547l-.021-.013c-.287-.183-.58-.357-.879-.522l-.012-.007c-.312-.172-.63-.334-.954-.486l-.014-.006c-.336-.157-.677-.303-1.025-.438-.352-.137-.711-.262-1.074-.376l-.013-.004c-.378-.118-.761-.223-1.149-.315-.393-.094-.793-.175-1.198-.242l-.01-.002c-.416-.069-.838-.124-1.264-.165l-.015-.001c-.439-.041-.884-.067-1.334-.078h-.009c-.456-.011-.917-.008-1.381.011l-.015.001c-.456.019-.915.053-1.378.1-.448.046-.898.106-1.352.179-.441.071-.884.156-1.331.254-.424.093-.849.198-1.278.318-.403.112-.806.237-1.213.375-.386.13-.772.274-1.161.428-.363.144-.725.299-1.09.467-.344.158-.687.326-1.032.505-.316.164-.632.338-.949.522l-.003.002c-.302.176-.603.361-.905.556-.279.181-.557.371-.836.568-.261.184-.521.376-.783.576l-.012.009c-.244.186-.487.381-.73.582-.224.186-.448.378-.671.577-.206.184-.411.374-.616.568-.186.177-.372.359-.556.546-.168.171-.335.347-.5.525-.148.16-.295.323-.44.49-.129.149-.256.301-.383.456-.109.134-.216.27-.321.408l-.003.004c-1.393 1.789-2.31 3.864-2.617 6.09-.153 1.114-.153 2.253 0 3.368.307 2.226 1.224 4.302 2.617 6.09l.003.004c.105.138.212.274.321.408.127.155.254.307.383.456.145.167.292.33.44.49.184.187.37.369.556.546.205.194.41.384.616.568.223.199.447.391.671.577.243.201.486.396.73.582l.012.009c.262.2.522.392.783.576.279.197.557.387.836.568.302.195.603.38.905.556l.003.002c.317.184.633.358.949.522.345.179.688.347 1.032.505.365.168.727.323 1.09.467.389.154.775.298 1.161.428.407.138.81.263 1.213.375.429.12.854.225 1.278.318.447.098.89.183 1.331.254.454.073.904.133 1.352.179.463.047.922.081 1.378.1l.015.001c.464.019.925.022 1.381.011h.009c.45-.011.895-.037 1.334-.078l.015-.001c.426-.041.848-.096 1.264-.165l.01-.002c.405-.067.805-.148 1.198-.242.388-.092.771-.197 1.149-.315l.013-.004c.363-.114.722-.239 1.074-.376.348-.135.689-.281 1.025-.438l.014-.006c.324-.152.642-.314.954-.486l.012-.007c.299-.165.592-.339.879-.522l.021-.013c.272-.174.538-.356.797-.547l.009-.007c.258-.192.509-.391.753-.598l.021-.018c.235-.199.463-.405.683-.618l.023-.021c.202-.198.398-.4.589-.609.188-.206.367-.417.541-.632.169-.21.33-.425.486-.645l.014-.02c.144-.204.282-.411.413-.623l.018-.028c.127-.205.246-.415.36-.628.101-.188.196-.379.285-.572.092-.201.179-.403.261-.609.072-.182.139-.367.202-.553.067-.197.127-.397.183-.598l.006-.021c.05-.187.096-.374.138-.564l.004-.022c.036-.177.068-.354.095-.533.029-.188.052-.378.073-.568.043-.388.074-.777.092-1.166l.002-.033c.019-.39.028-.781.028-1.171 0-.39-.009-.781-.028-1.171l-.002-.033c-.018-.389-.049-.778-.092-1.166zm-4.707 3.328l-5.699 5.699c-.198.198-.519.198-.717 0l-2.699-2.699c-.198-.198-.198-.519 0-.717l1.054-1.054c.198-.198.519-.198.717 0l1.287 1.287 4.288-4.288c.198-.198.519-.198.717 0l1.052 1.054c.198.198.198.517 0 .718z"/></svg>
-                      Producthunt
-                  </a>
-                  <a href="https://youtube.com/@HeyItsSuyash" target="_blank" class="nav-link">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                      YT <span style="font-size: 0.7rem; background: rgba(255,255,255,0.2); padding: 2px 5px; border-radius: 8px;">Soon</span>
-                  </a>
-              </div>
-              <a href="#" class="nav-btn-green">
-                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Fpizzafull.png&amp;w=48&amp;q=75" alt="Pizza" style="height: 20px;" />
-                  Project
-              </a>
-          </div>
-
           <!-- Hero Section -->
-          <div class="hero">
-              <div class="hero-left">
-                  <h1 id="hero-name">Suyash</h1>
-                  <div class="phonetic">/su:jaʃ/ (proper noun)</div>
-                  
-                  <p class="tagline" id="hero-bio">A builder at heart.<br/>Turning ideas into digital ecosystems<br/>that create real impact.</p>
-                  
-                  <div class="social-icons">
-                      <a href="https://github.com/HeyItsSuyash" target="_blank" class="clay-btn social-icon">
-                          <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" />
-                      </a>
-                      <a href="https://linkedin.com/in/HeyItsSuyash" target="_blank" class="clay-btn social-icon">
-                          <img src="https://cdn.simpleicons.org/linkedin/white" alt="LinkedIn" />
-                      </a>
-                      <a href="https://x.com/HeyItsSuyash" target="_blank" class="clay-btn social-icon">
-                          <img src="https://cdn.simpleicons.org/x/white" alt="X" />
-                      </a>
-                      <a href="https://producthunt.com/@HeyItsSuyash" target="_blank" class="clay-btn social-icon">
-                          <img src="https://cdn.simpleicons.org/producthunt/white" alt="ProductHunt" />
-                      </a>
-                      <a href="mailto:contact@suyashshukla.com" class="clay-btn social-icon">
-                          <img src="https://cdn.simpleicons.org/minutemailer/white" alt="Email" />
-                      </a>
-                  </div>
-              </div>
-
-              <div class="hero-center">
-                  <img id="hero-img" src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fhero-avatar%2Fmain.png&amp;w=2048&amp;q=75" alt="Suyash Avatar" class="hero-avatar" onerror="this.style.display='none';" />
-              </div>
-
-              <div class="hero-right clay">
-                  <div>
-                      <strong>Location</strong>
-                      <span id="hero-location">India 📍</span>
-                  </div>
-                  <div>
-                      <strong>Focus</strong>
-                      AI • Automation<br/>
-                      Product • Design<br/>
-                      Ecosystems
-                  </div>
-                  <div>
-                      <strong>Currently</strong>
-                      Building, Learning<br/>
-                      &amp; Shipping
-                  </div>
-              </div>
-          </div>
-
           <!-- About Me -->
-          <div class="about-card clay">
-              <div class="about-icon">
-                  <img src="https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&amp;w=96&amp;q=75" alt="Brand Logo" />
-              </div>
-              <div class="about-content">
-                  <h2>About Me</h2>
-                  <!-- The text is split into two separate paragraphs to make typing animation easier via JS or CSS. -->
-                  <p id="typing-text-1"></p>
-                  <p id="typing-text-2"></p>
-              </div>
-              <!-- Decorative leaves -->
-              <svg class="leaves-bg" width="160" height="160" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M50 90 C 50 60, 20 40, 20 10 C 50 10, 80 40, 50 90 Z" fill="#0c4f39" stroke="#136b4d" stroke-width="2"/>
-                  <path d="M50 90 C 50 70, 80 60, 90 30 C 70 30, 50 60, 50 90 Z" fill="#0c4f39" stroke="#136b4d" stroke-width="2"/>
-                  <path d="M50 90 C 50 70, 10 60, 10 30 C 30 30, 50 60, 50 90 Z" fill="#0c4f39" stroke="#136b4d" stroke-width="2"/>
-                  <path d="M50 90 L 50 20" stroke="#136b4d" stroke-width="2"/>
-              </svg>
-          </div>
-
-          <!-- My Projects (Horizontal Scroll) -->
+          <!-- My Projects -->
           <h2 class="section-title">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
               My Projects
@@ -725,7 +625,7 @@
               
               <div class="eco-card clay" style="justify-content: center; align-items: center; cursor: pointer; text-decoration: none;" onclick="window.open('https://github.com/HeyItsSuyash?tab=repositories', '_blank')">
                   <h3 style="margin-bottom: 10px;">View More Projects</h3>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8cc3a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
           </div>
 
@@ -814,7 +714,7 @@
                               <span>18%</span>
                           </div>
                           <div class="lang-item">
-                              <div><span class="lang-item-dot" style="background-color: #8cc3a9;"></span>Other</div>
+                              <div><span class="lang-item-dot" style="background-color: #FFD700;"></span>Other</div>
                               <span>26%</span>
                           </div>
                       </div>
@@ -905,7 +805,7 @@
                       container.innerHTML = ''; 
                       repos.forEach(repo => {
                           const langColors = { TypeScript: '#3178c6', JavaScript: '#f1e05a', Python: '#3572A5', Java: '#b07219' };
-                          const langColor = langColors[repo.language] || '#8cc3a9';
+                          const langColor = langColors[repo.language] || '#FFD700';
                           
                           container.innerHTML += `
                           <div class="eco-card clay">
@@ -926,7 +826,7 @@
                       container.innerHTML += `
                       <div class="eco-card clay" style="justify-content: center; align-items: center; cursor: pointer; text-decoration: none;" onclick="window.open('https://github.com/HeyItsSuyash?tab=repositories', '_blank')">
                           <h3 style="margin-bottom: 10px;">View More Projects</h3>
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8cc3a9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                       </div>`;
                   }
               }

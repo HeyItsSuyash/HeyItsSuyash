@@ -2,12 +2,12 @@
 
 <!-- Hero Banner -->
 <a href="https://suyashshukla.com">
-  <img src="https://heyitssuyash.onrender.com/api/hero" width="100%" alt="Suyash Dashboard Hero">
+  <img src="./portfolio hero.png" width="100%" alt="Suyash Dashboard Hero">
 </a>
 
 <!-- About Me Section -->
 <a href="https://suyashshukla.com">
-  <img src="https://heyitssuyash.onrender.com/api/about" width="100%" alt="About Me">
+  <img src="./about me.png" width="100%" alt="About Me">
 </a>
 
 <!-- Social Icons Grid (4 in a row) -->
