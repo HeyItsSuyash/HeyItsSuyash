@@ -64,7 +64,7 @@ app.get('/api/skills', async (req, res) => {
     const svg = await generateSkills();
     res.send(svg);
 });
-\napp.get('/api/stats', async (req, res) => {
+app.get('/api/stats', async (req, res) => {
     const { profile } = await fetchData();
     const stats = {
         repos: profile.public_repos || 25,
