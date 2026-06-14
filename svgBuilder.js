@@ -245,7 +245,7 @@ async function generateStats(stats) {
 
 
 async function generateSkills() {
-        const skills = [
+                const skills = [
         { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
         { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
         { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
@@ -257,8 +257,20 @@ async function generateSkills() {
         { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
         { name: 'Mongoose', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg' },
         { name: 'Socket.IO', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg' },
+        { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+        { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+        { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+        { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+        { name: 'Pandas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
+        { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+        { name: 'Blender', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg' },
         { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
         { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+        { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+        { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg' },
+        { name: 'Nginx', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg' },
         { name: 'Cloudflare', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg' },
         { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
         { name: 'Kaggle', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kaggle/kaggle-original.svg' }
@@ -270,13 +282,13 @@ async function generateSkills() {
     }));
 
     let badges = '';
-    const badgeWidth = 140;
-    const badgeHeight = 40;
+    const badgeWidth = 180;
+    const badgeHeight = 55;
     const paddingX = 15;
     const paddingY = 15;
     
     // Calculate rows
-    const itemsPerRow = 7;
+    const itemsPerRow = 6;
     let y = 80;
     
     for (let i = 0; i < skillsWithB64.length; i += itemsPerRow) {
@@ -288,9 +300,9 @@ async function generateSkills() {
             const skill = rowItems[j];
             badges += `
         <g transform="translate(${x}, ${y})">
-            <rect width="140" height="36"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
-            <image href="${skill.b64}" x="15" y="8" width="20" height="20"/>
-            <text x="45" y="24" fill="#dddddd" font-size="14" font-weight="500">${skill.name}</text>
+            <rect width="180" height="55"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
+            <image href="${skill.b64}" x="20" y="13" width="30" height="30"/>
+            <text x="60" y="34" fill="#dddddd" font-size="18" font-weight="500">${skill.name}</text>
         </g>`;
             x += badgeWidth + paddingX;
         }
