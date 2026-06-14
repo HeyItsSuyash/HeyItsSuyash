@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const axios = require('axios');
 
 async function getBase64Image(url) {
@@ -100,26 +102,31 @@ async function generateAbout() {
 
 async function generateSocial(platform) {
     const config = {
-        github: { color: "ffffff", icon: "github", name: "GitHub", text: "Follow me" },
-        codolio: { color: "FF5722", icon: "codeforces", name: "Codolio", text: "Coding Stats" },
-        stackoverflow: { color: "F58025", icon: "stackoverflow", name: "StackOverflow", text: "Reputation" },
-        kaggle: { color: "20BEFF", icon: "kaggle", name: "Kaggle", text: "Notebooks" },
-        googledev: { color: "4285F4", icon: "google", name: "Google Dev", text: "Profile" },
-        discord: { color: "5865F2", icon: "discord", name: "Discord", text: "Connect" },
-        unstop: { color: "0073E6", icon: "target", name: "Unstop", text: "Competitions" },
-        devpost: { color: "00B3E6", icon: "devpost", name: "Devpost", text: "Hackathons" } // Brighter devpost
+        github: { file: "GitHub-Logo.wine.png", color: "181717", name: "GitHub", text: "Follow me" },
+        codolio: { file: "codolio.jpg", color: "FF5722", name: "Codolio", text: "Coding Stats" },
+        stackoverflow: { file: "stackoverflow.png", color: "F58025", name: "StackOverflow", text: "Reputation" },
+        kaggle: { file: "kaggle.png", color: "20BEFF", name: "Kaggle", text: "Notebooks" },
+        googledev: { file: "gdev.png", color: "4285F4", name: "Google Dev", text: "Profile" },
+        discord: { file: "discord.png", color: "5865F2", name: "Discord", text: "Connect" },
+        unstop: { file: "unstop.png", color: "0073E6", name: "Unstop", text: "Competitions" },
+        devpost: { file: "devpost.jpg", color: "00B3E6", name: "Devpost", text: "Hackathons" }
     };
     const c = config[platform] || config.github;
     
     let iconB64 = "";
     try {
-        iconB64 = await getBase64Image(`https://cdn.simpleicons.org/${c.icon}/${c.color}`);
+        const filePath = path.join(__dirname, 'social-icons', c.file);
+        if (fs.existsSync(filePath)) {
+            const fileData = fs.readFileSync(filePath);
+            const mimeType = c.file.endsWith('.jpg') ? 'image/jpeg' : 'image/png';
+            iconB64 = `data:${mimeType};base64,${fileData.toString('base64')}`;
+        }
     } catch(e) {
-        console.error("Failed to fetch icon", e);
+        console.error("Failed to read local icon", e);
     }
 
     const imageTag = iconB64 
-        ? `<image href="${iconB64}" x="25" y="25" width="30" height="30" />`
+        ? `<image href="${iconB64}" x="20" y="20" width="40" height="40" preserveAspectRatio="xMidYMid meet" />`
         : `<rect x="20" y="20" width="40" height="40" fill="#${c.color}"/>`;
 
     return `
