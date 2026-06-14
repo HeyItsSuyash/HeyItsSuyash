@@ -120,6 +120,20 @@ async function generateSocial(platform) {
 }
 
 
+
+function escapeXml(unsafe) {
+    if (!unsafe) return '';
+    return unsafe.replace(/[<>&'"]/g, function (c) {
+        switch (c) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
+        }
+    });
+}
+
 function wrapText(text, maxChars) {
     if (!text) return [];
     const words = text.split(' ');
@@ -144,7 +158,7 @@ async function generateProjectCard(repo) {
     const langColor = { "JavaScript": "#f1e05a", "Python": "#3572A5", "TypeScript": "#3178c6", "HTML": "#e34c26" };
     const color = repo.language ? (langColor[repo.language] || "#cccccc") : "#cccccc";
     
-    const lines = wrapText(repo.readme_snippet, 45).slice(0, 3); // Max 3 lines
+    const lines = wrapText(escapeXml(repo.readme_snippet), 45).slice(0, 3); // Max 3 lines
     const textTspans = lines.map((l, i) => `<tspan x="20" dy="${i === 0 ? 0 : 20}">${l}</tspan>`).join('');
 
     return `

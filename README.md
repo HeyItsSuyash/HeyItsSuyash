@@ -1,34 +1,18 @@
 <div align="center">
 
-<a href="https://suyashshukla.com"><img src="./portfolio hero.png" width="99%" alt="Suyash Dashboard Hero"></a><!--
---><a href="https://suyashshukla.com"><img src="./about me.png" width="99%" alt="About Me"></a><!--
+<a href="https://suyashshukla.com"><img src="./portfolio hero.png" width="100%" alt="Suyash Dashboard Hero"></a>
+<a href="https://suyashshukla.com"><img src="./about me.png" width="100%" alt="About Me"></a>
 
-Social Icons (207px * 4 = 828px exactly 100% width)
---><a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/github?v=newtheme7" width="207"></a><!--
---><a href="https://linkedin.com/in/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/linkedin?v=newtheme7" width="207"></a><!--
---><a href="https://x.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/twitter?v=newtheme7" width="207"></a><!--
---><a href="https://suyashshukla.com"><img src="https://heyitssuyash.onrender.com/api/social/portfolio?v=newtheme7" width="207"></a><!--
+<a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/github?v=newtheme8" width="207"></a><a href="https://linkedin.com/in/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/linkedin?v=newtheme8" width="207"></a><a href="https://x.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/twitter?v=newtheme8" width="207"></a><a href="https://suyashshukla.com"><img src="https://heyitssuyash.onrender.com/api/social/portfolio?v=newtheme8" width="207"></a>
 
-Skills (100% width)
---><a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/skills?v=newtheme7" width="99%"></a><!--
+<a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/skills?v=newtheme8" width="100%"></a>
 
-Projects (414px * 2 = 828px exactly 100% width, 50% each)
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/0?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/1?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/2?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/3?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/4?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/5?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/6?v=newtheme7" width="414"></a><!--
---><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/view-all?v=newtheme7" width="414"></a><!--
+<a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/0?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/1?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/2?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/3?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/4?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/5?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/6?v=newtheme8" width="414"></a><a href="https://github.com/HeyItsSuyash?tab=repositories"><img src="https://heyitssuyash.onrender.com/api/project/view-all?v=newtheme8" width="414"></a>
 
-Snake Animation
---><a href="https://github.com/HeyItsSuyash"><img src="https://raw.githubusercontent.com/HeyItsSuyash/HeyItsSuyash/output/dist/github-contribution-grid-snake-black.svg" width="99%" alt="Snake Animation"></a><!--
+<a href="https://github.com/HeyItsSuyash"><img src="https://raw.githubusercontent.com/HeyItsSuyash/HeyItsSuyash/output/dist/github-contribution-grid-snake-black.svg" width="100%" alt="Snake Animation"></a>
 
-Stats
---><a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/stats?v=newtheme7" width="99%" alt="Stats and Languages"></a><!--
+<a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/stats?v=newtheme8" width="100%" alt="Stats and Languages"></a>
 
-Footer
---><img src="./footer github.png" width="99%" alt="Footer">
+<img src="./footer github.png" width="100%" alt="Footer">
 
 </div>
