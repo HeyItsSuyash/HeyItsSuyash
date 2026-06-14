@@ -119,23 +119,53 @@ async function generateSocial(platform) {
 </svg>`;
 }
 
+
+function wrapText(text, maxChars) {
+    if (!text) return [];
+    const words = text.split(' ');
+    let lines = [];
+    let currentLine = '';
+    for (let word of words) {
+        if ((currentLine + word).length > maxChars) {
+            lines.push(currentLine.trim());
+            currentLine = word + ' ';
+        } else {
+            currentLine += word + ' ';
+        }
+    }
+    if (currentLine) lines.push(currentLine.trim());
+    return lines;
+}
+
 async function generateProjectCard(repo) {
-    if (!repo) return `<svg width="380" height="160"></svg>`;
+    if (!repo) {
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="414" height="200" viewBox="0 0 414 200"><rect width="414" height="200" fill="#000000"/></svg>`;
+    }
+    const langColor = { "JavaScript": "#f1e05a", "Python": "#3572A5", "TypeScript": "#3178c6", "HTML": "#e34c26" };
+    const color = repo.language ? (langColor[repo.language] || "#cccccc") : "#cccccc";
+    
+    const lines = wrapText(repo.readme_snippet, 45).slice(0, 3); // Max 3 lines
+    const textTspans = lines.map((l, i) => `<tspan x="20" dy="${i === 0 ? 0 : 20}">${l}</tspan>`).join('');
+
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="160" viewBox="0 0 380 160">
+<svg xmlns="http://www.w3.org/2000/svg" width="414" height="200" viewBox="0 0 414 200">
     ${COMMON_DEFS}
-    <rect width="380" height="160" fill="#000000"/>
-    <g transform="translate(15, 15)">
-        <rect width="350" height="130"  fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
-        <text x="20" y="35" fill="#ffffff" font-size="18" font-weight="600">${(repo.name || '').substring(0, 25)}</text>
-        <text x="20" y="65" fill="#dddddd" font-size="14">${(repo.description || '').substring(0, 40)}...</text>
-        <rect x="20" y="85" width="80" height="25"  fill="rgba(0,0,0,0.2)" />
-        <text x="35" y="102" fill="#FFD700" font-size="12">${repo.language || 'Code'}</text>
-        <rect x="110" y="85" width="60" height="25"  fill="rgba(0,0,0,0.2)" />
-        <text x="125" y="102" fill="#FFD700" font-size="12">⭐ ${repo.stargazers_count}</text>
+    <rect width="414" height="200" fill="#000000"/>
+    <g transform="translate(10, 10)">
+        <rect width="394" height="180" fill="#000000" stroke="#FFD700" stroke-width="1"/>
+        <text x="20" y="40" fill="#ffffff" font-size="20" font-weight="600">${repo.name}</text>
+        
+        <text x="20" y="75" fill="#aaaaaa" font-size="14" font-family="'Space Grotesk', sans-serif">
+            ${textTspans}
+        </text>
+
+        <circle cx="20" cy="155" r="5" fill="${color}"/>
+        <text x="35" y="160" fill="#dddddd" font-size="14">${repo.language || "Code"}</text>
+        <text x="120" y="160" fill="#FFD700" font-size="14">★ ${repo.stargazers_count}</text>
     </g>
 </svg>`;
 }
+
 
 async function generateStats(stats) {
     return `
@@ -243,17 +273,19 @@ async function generateSkills() {
 }
 
 
+
 async function generateViewAllCard() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="160" viewBox="0 0 380 160">
+<svg xmlns="http://www.w3.org/2000/svg" width="414" height="200" viewBox="0 0 414 200">
     ${COMMON_DEFS}
-    <rect width="380" height="160" fill="#000000"/>
-    <g transform="translate(15, 15)">
-        <rect width="350" height="130" fill="#000000" stroke="#FFD700" stroke-width="1" filter="url(#clay-shadow)"/>
-        <text x="175" y="65" fill="#ffffff" font-size="20" font-weight="600" text-anchor="middle">View All Repositories</text>
-        <text x="175" y="90" fill="#FFD700" font-size="24" font-weight="600" text-anchor="middle">→</text>
+    <rect width="414" height="200" fill="#000000"/>
+    <g transform="translate(10, 10)">
+        <rect width="394" height="180" fill="#000000" stroke="#FFD700" stroke-width="1"/>
+        <text x="197" y="90" fill="#ffffff" font-size="22" font-weight="600" text-anchor="middle">View All Repositories</text>
+        <text x="197" y="120" fill="#FFD700" font-size="28" font-weight="600" text-anchor="middle">→</text>
     </g>
 </svg>`;
 }
+
 
 module.exports = { generateViewAllCard,  generateSkills,  generateHero, generateAbout, generateSocial, generateProjectCard, generateStats };
