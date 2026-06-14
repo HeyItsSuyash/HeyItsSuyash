@@ -99,24 +99,36 @@ async function generateAbout() {
 }
 
 async function generateSocial(platform) {
-        const config = {
-        github: { color: "#333333", name: "GitHub", text: "Follow me" },
-        codolio: { color: "#FF5722", name: "Codolio", text: "Coding Stats" },
-        stackoverflow: { color: "#F58025", name: "StackOverflow", text: "Reputation" },
-        kaggle: { color: "#20BEFF", name: "Kaggle", text: "Notebooks" },
-        googledev: { color: "#4285F4", name: "Google Dev", text: "Profile" },
-        discord: { color: "#5865F2", name: "Discord", text: "Connect" },
-        unstop: { color: "#0073E6", name: "Unstop", text: "Competitions" },
-        devpost: { color: "#003E54", name: "Devpost", text: "Hackathons" }
+    const config = {
+        github: { color: "ffffff", icon: "github", name: "GitHub", text: "Follow me" },
+        codolio: { color: "FF5722", icon: "codeforces", name: "Codolio", text: "Coding Stats" },
+        stackoverflow: { color: "F58025", icon: "stackoverflow", name: "StackOverflow", text: "Reputation" },
+        kaggle: { color: "20BEFF", icon: "kaggle", name: "Kaggle", text: "Notebooks" },
+        googledev: { color: "4285F4", icon: "google", name: "Google Dev", text: "Profile" },
+        discord: { color: "5865F2", icon: "discord", name: "Discord", text: "Connect" },
+        unstop: { color: "0073E6", icon: "target", name: "Unstop", text: "Competitions" },
+        devpost: { color: "00B3E6", icon: "devpost", name: "Devpost", text: "Hackathons" } // Brighter devpost
     };
     const c = config[platform] || config.github;
+    
+    let iconB64 = "";
+    try {
+        iconB64 = await getBase64Image(`https://cdn.simpleicons.org/${c.icon}/${c.color}`);
+    } catch(e) {
+        console.error("Failed to fetch icon", e);
+    }
+
+    const imageTag = iconB64 
+        ? `<image href="${iconB64}" x="25" y="25" width="30" height="30" />`
+        : `<rect x="20" y="20" width="40" height="40" fill="#${c.color}"/>`;
+
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="285" height="100" viewBox="0 0 285 100">
     ${COMMON_DEFS}
     <rect width="285" height="100" fill="#000000"/>
     <g transform="translate(10, 10)">
         <rect width="265" height="80"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1"/>
-        <rect x="20" y="20" width="40" height="40"  fill="${c.color}"/>
+        ${imageTag}
         <text x="75" y="40" fill="#ffffff" font-size="18" font-weight="600">${c.name}</text>
         <text x="75" y="60" fill="#dddddd" font-size="14">${c.text}</text>
     </g>
