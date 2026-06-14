@@ -44,7 +44,7 @@ async function fetchData() {
             return new Date(b.updated_at) - new Date(a.updated_at);
         });
         
-        let topRepos = repos.slice(0, 7);
+        let topRepos = repos.slice(0, 8);
         const reposWithReadme = await Promise.all(topRepos.map(async (repo) => {
             const readmeText = await fetchReadme(repo.name);
             return { ...repo, readme_snippet: readmeText };

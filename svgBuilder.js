@@ -4,7 +4,7 @@ async function getBase64Image(url) {
     try {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
         const base64 = Buffer.from(response.data, 'binary').toString('base64');
-        const mimeType = url.includes('.svg') ? 'image/svg+xml' : 'image/png';
+        const mimeType = url.includes('.svg') || url.includes('simpleicons.org') ? 'image/svg+xml' : 'image/png';
         return `data:${mimeType};base64,${base64}`;
     } catch (e) {
         return ''; 
@@ -302,14 +302,9 @@ async function generateSkills() {
 
 async function generateViewAllCard() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="414" height="200" viewBox="0 0 414 200">
-    ${COMMON_DEFS}
-    <rect width="414" height="200" fill="#000000"/>
-    <g transform="translate(10, 10)">
-        <rect width="394" height="180" fill="#000000" stroke="#FFD700" stroke-width="1"/>
-        <text x="197" y="90" fill="#ffffff" font-size="22" font-weight="600" text-anchor="middle">View All Repositories</text>
-        <text x="197" y="120" fill="#FFD700" font-size="28" font-weight="600" text-anchor="middle">→</text>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="828" height="50" viewBox="0 0 828 50">
+    <rect width="828" height="50" fill="#FFD700" rx="8" />
+    <text x="414" y="32" fill="#000000" font-size="22" font-family="'Space Grotesk', sans-serif" font-weight="700" text-anchor="middle">View All Repositories</text>
 </svg>`;
 }
 
