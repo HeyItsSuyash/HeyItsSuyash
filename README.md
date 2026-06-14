@@ -3,7 +3,8 @@
 <a href="https://suyashshukla.com"><img src="./portfolio hero.png" width="100%" alt="Suyash Dashboard Hero"></a>
 <a href="https://suyashshukla.com"><img src="./about me.png" width="100%" alt="About Me"></a>
 
-<a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/github?v=newtheme8" width="207"></a><a href="https://linkedin.com/in/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/linkedin?v=newtheme8" width="207"></a><a href="https://x.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/twitter?v=newtheme8" width="207"></a><a href="https://suyashshukla.com"><img src="https://heyitssuyash.onrender.com/api/social/portfolio?v=newtheme8" width="207"></a>
+<a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/social/github?v=newtheme9" width="207"></a><a href="#"><img src="https://heyitssuyash.onrender.com/api/social/codolio?v=newtheme9" width="207"></a><a href="#"><img src="https://heyitssuyash.onrender.com/api/social/stackoverflow?v=newtheme9" width="207"></a><a href="#"><img src="https://heyitssuyash.onrender.com/api/social/kaggle?v=newtheme9" width="207"></a>
+<a href="#"><img src="https://heyitssuyash.onrender.com/api/social/googledev?v=newtheme9" width="207"></a><a href="#"><img src="https://heyitssuyash.onrender.com/api/social/discord?v=newtheme9" width="207"></a><a href="#"><img src="https://heyitssuyash.onrender.com/api/social/unstop?v=newtheme9" width="207"></a><a href="#"><img src="https://heyitssuyash.onrender.com/api/social/devpost?v=newtheme9" width="207"></a>
 
 <a href="https://github.com/HeyItsSuyash"><img src="https://heyitssuyash.onrender.com/api/skills?v=newtheme8" width="100%"></a>
 

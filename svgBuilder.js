@@ -99,11 +99,15 @@ async function generateAbout() {
 }
 
 async function generateSocial(platform) {
-    const config = {
-        github: { color: "#181717", name: "GitHub", url: "https://github.com/HeyItsSuyash", text: "Follow me" },
-        linkedin: { color: "#0A66C2", name: "LinkedIn", url: "https://linkedin.com/in/HeyItsSuyash", text: "Connect" },
-        twitter: { color: "#000000", name: "X", url: "https://x.com/HeyItsSuyash", text: "Updates" },
-        portfolio: { color: "#0f4f37", name: "Portfolio", url: "https://suyashshukla.com", text: "My Work" }
+        const config = {
+        github: { color: "#333333", name: "GitHub", text: "Follow me" },
+        codolio: { color: "#FF5722", name: "Codolio", text: "Coding Stats" },
+        stackoverflow: { color: "#F58025", name: "StackOverflow", text: "Reputation" },
+        kaggle: { color: "#20BEFF", name: "Kaggle", text: "Notebooks" },
+        googledev: { color: "#4285F4", name: "Google Dev", text: "Profile" },
+        discord: { color: "#5865F2", name: "Discord", text: "Connect" },
+        unstop: { color: "#0073E6", name: "Unstop", text: "Competitions" },
+        devpost: { color: "#003E54", name: "Devpost", text: "Hackathons" }
     };
     const c = config[platform] || config.github;
     return `
