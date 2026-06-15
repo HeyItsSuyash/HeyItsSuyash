@@ -5,6 +5,8 @@ async function fetchDynamicStats(username) {
     let contributions = 0;
     let reposCount = 0;
     let followers = 0;
+    let prs = 0;
+    let issues = 0;
 
     try {
         const profileRes = await axios.get(`https://api.github.com/users/${username}`);
@@ -19,11 +21,17 @@ async function fetchDynamicStats(username) {
         if (match) {
             contributions = parseInt(match[1], 10);
         }
+        
+        const prsMatch = statsRes.data.match(/data-testid="prs"[^>]*>\s*(\d+)\s*</);
+        if (prsMatch) prs = parseInt(prsMatch[1], 10);
+        
+        const issuesMatch = statsRes.data.match(/data-testid="issues"[^>]*>\s*(\d+)\s*</);
+        if (issuesMatch) issues = parseInt(issuesMatch[1], 10);
     } catch (e) {
         console.error("Error fetching dynamic stats:", e.message);
     }
     
-    return { repos: reposCount, followers, stars, contributions };
+    return { repos: reposCount, followers, stars, contributions, prs, issues };
 }
 
 module.exports = { fetchDynamicStats };
