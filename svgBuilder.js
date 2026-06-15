@@ -52,10 +52,10 @@ async function generateHero() {
     </g>
 
     <g transform="translate(50, 180)">
-        <text x="0" y="50" fill="#ffffff" font-size="70" font-weight="700">Suyash</text>
-        <text x="0" y="80" fill="#FFD700" font-size="18" font-style="italic">/su:jaʃ/ (proper noun)</text>
-        <text x="0" y="130" fill="#ffffff" font-size="20">A builder at heart.</text>
-        <text x="0" y="160" fill="#ffffff" font-size="20">Turning ideas into digital ecosystems.</text>
+        <text x="0" y="50" fill="#ffffff" font-size="90" font-weight="700">Suyash</text>
+        <text x="0" y="90" fill="#FFD700" font-size="24" font-style="italic">/su:jaʃ/ (proper noun)</text>
+        <text x="0" y="150" fill="#ffffff" font-size="28">A builder at heart.</text>
+        <text x="0" y="190" fill="#ffffff" font-size="28">Turning ideas into digital ecosystems.</text>
     </g>
 
     <!-- Avatar -->
@@ -66,12 +66,12 @@ async function generateHero() {
     <!-- Right Side Info -->
     <g transform="translate(900, 150)">
         <rect width="250" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="0" />
-        <text x="25" y="45" fill="#ffffff" font-size="18" font-weight="600">Location</text>
-        <text x="25" y="70" fill="#dddddd" font-size="16">India 📍</text>
-        <text x="25" y="115" fill="#ffffff" font-size="18" font-weight="600">Focus</text>
-        <text x="25" y="140" fill="#dddddd" font-size="16">AI • Automation</text>
-        <text x="25" y="205" fill="#ffffff" font-size="18" font-weight="600">Currently</text>
-        <text x="25" y="230" fill="#dddddd" font-size="16">Building &amp; Shipping</text>
+        <text x="25" y="45" fill="#ffffff" font-size="24" font-weight="600">Location</text>
+        <text x="25" y="75" fill="#dddddd" font-size="20">India 📍</text>
+        <text x="25" y="125" fill="#ffffff" font-size="24" font-weight="600">Focus</text>
+        <text x="25" y="155" fill="#dddddd" font-size="20">AI • Automation</text>
+        <text x="25" y="205" fill="#ffffff" font-size="24" font-weight="600">Currently</text>
+        <text x="25" y="235" fill="#dddddd" font-size="20">Building &amp; Shipping</text>
     </g>
 </svg>`;
 }
@@ -79,21 +79,21 @@ async function generateHero() {
 async function generateAbout() {
     const logoB64 = await getBase64Image("https://www.suyashshukla.com/_next/image?url=%2Fimages%2Fother-illustrations%2Flogo.png&w=96&q=75");
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280">
     ${COMMON_DEFS}
     <clipPath id="typing-clip">
         <rect x="0" y="0" width="0" height="150" class="typing-mask">
-            <animate attributeName="width" from="0" to="900" dur="4s" fill="freeze" />
+            <animate attributeName="width" from="0" to="1100" dur="4s" fill="freeze" />
         </rect>
     </clipPath>
-    <rect width="1200" height="220" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
-    <g transform="translate(50, 20)">
-        <circle cx="60" cy="60" r="30" fill="rgba(255,255,255,0.1)"/>
-        <image href="${logoB64}" x="40" y="40" width="40" height="40" />
-        <text x="120" y="65" fill="#ffffff" font-size="28" font-weight="600">About Me</text>
-        <g clip-path="url(#typing-clip)" transform="translate(120, 105)">
-            <text x="0" y="0" fill="#dddddd" font-size="18">I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras.</text>
-            <text x="0" y="30" fill="#dddddd" font-size="18">My journey is driven by curiosity, consistency, and the belief that technology empowers people.</text>
+    <rect width="1200" height="280" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
+    <g transform="translate(50, 30)">
+        <circle cx="75" cy="75" r="40" fill="rgba(255,255,255,0.1)"/>
+        <image href="${logoB64}" x="50" y="50" width="50" height="50" />
+        <text x="140" y="85" fill="#ffffff" font-size="36" font-weight="600">About Me</text>
+        <g clip-path="url(#typing-clip)" transform="translate(140, 135)">
+            <text x="0" y="0" fill="#dddddd" font-size="24">I'm a Computer Science student at MMMUT and a Data Science student at IIT Madras.</text>
+            <text x="0" y="40" fill="#dddddd" font-size="24">My journey is driven by curiosity, consistency, and the belief that technology empowers people.</text>
         </g>
     </g>
 </svg>`;
@@ -125,16 +125,16 @@ async function generateSocial(platform) {
     }
 
     const imageTag = iconB64 
-        ? `<image href="${iconB64}" x="35" y="30" width="40" height="40" preserveAspectRatio="xMidYMid meet" />`
-        : `<rect x="35" y="30" width="40" height="40" fill="#${c.color}"/>`;
+        ? `<image href="${iconB64}" x="30" y="30" width="60" height="60" preserveAspectRatio="xMidYMid meet" />`
+        : `<rect x="30" y="30" width="60" height="60" fill="#${c.color}"/>`;
 
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 300 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="120" viewBox="0 0 300 120">
     ${COMMON_DEFS}
-    <rect width="300" height="100" fill="#000000" stroke="#FFD700" stroke-width="8" rx="0" />
+    <rect width="300" height="120" fill="#000000" stroke="#FFD700" stroke-width="8" rx="0" />
     ${imageTag}
-    <text x="90" y="50" fill="#ffffff" font-size="18" font-weight="600">${c.name}</text>
-    <text x="90" y="70" fill="#dddddd" font-size="14">${c.text}</text>
+    <text x="100" y="55" fill="#ffffff" font-size="22" font-weight="600">${c.name}</text>
+    <text x="100" y="80" fill="#dddddd" font-size="18">${c.text}</text>
 </svg>`;
 }
 
@@ -177,23 +177,23 @@ async function generateProjectCard(repo) {
     const langColor = { "JavaScript": "#f1e05a", "Python": "#3572A5", "TypeScript": "#3178c6", "HTML": "#e34c26" };
     const color = repo.language ? (langColor[repo.language] || "#cccccc") : "#cccccc";
     
-    const lines = wrapText(escapeXml(repo.readme_snippet), 70).slice(0, 3); // Max 3 lines
-    const textTspans = lines.map((l, i) => `<tspan x="20" dy="${i === 0 ? 0 : 20}">${l}</tspan>`).join('');
+    const lines = wrapText(escapeXml(repo.readme_snippet), 40).slice(0, 3); // Max 3 lines
+    const textTspans = lines.map((l, i) => `<tspan x="20" dy="${i === 0 ? 0 : 30}">${l}</tspan>`).join('');
 
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280">
     ${COMMON_DEFS}
-    <rect width="600" height="200" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
+    <rect width="600" height="280" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
     <g transform="translate(15, 10)">
-        <text x="20" y="40" fill="#ffffff" font-size="20" font-weight="600">${repo.name}</text>
+        <text x="25" y="50" fill="#ffffff" font-size="28" font-weight="600">${repo.name}</text>
         
-        <text x="20" y="75" fill="#aaaaaa" font-size="14" font-family="'Space Grotesk', sans-serif">
+        <text x="25" y="100" fill="#aaaaaa" font-size="20" font-family="'Space Grotesk', sans-serif">
             ${textTspans}
         </text>
 
-        <circle cx="20" cy="155" r="5" fill="${color}"/>
-        <text x="35" y="160" fill="#dddddd" font-size="14">${repo.language || "Code"}</text>
-        <text x="120" y="160" fill="#FFD700" font-size="14">★ ${repo.stargazers_count}</text>
+        <circle cx="25" cy="225" r="8" fill="${color}"/>
+        <text x="45" y="232" fill="#dddddd" font-size="20">${repo.language || "Code"}</text>
+        <text x="160" y="232" fill="#FFD700" font-size="20">★ ${repo.stargazers_count}</text>
     </g>
 </svg>`;
 }
@@ -201,40 +201,40 @@ async function generateProjectCard(repo) {
 
 async function generateStats(stats) {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
     ${COMMON_DEFS}
-    <rect width="1200" height="300" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
+    <rect width="1200" height="400" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
     
-    <g transform="translate(50, 20)">
-        <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
-        <text x="25" y="80" fill="#dddddd" font-size="18">Repositories</text>
-        <text x="320" y="80" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.repos}</text>
-        <text x="25" y="110" fill="#dddddd" font-size="18">Followers</text>
-        <text x="320" y="110" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.followers}</text>
-        <text x="25" y="140" fill="#dddddd" font-size="18">Stars Earned</text>
-        <text x="320" y="140" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.stars}+</text>
-        <text x="25" y="170" fill="#dddddd" font-size="18">Contributions</text>
-        <text x="320" y="170" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.contributions}+</text>
-        <text x="25" y="200" fill="#dddddd" font-size="18">Pull Requests</text>
-        <text x="320" y="200" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.prs}</text>
-        <text x="25" y="230" fill="#dddddd" font-size="18">Issues</text>
-        <text x="320" y="230" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.issues}</text>
-        <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
-        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
-        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
-        <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3572A5" stroke-width="25" stroke-dasharray="50 264" stroke-dashoffset="-180" />
+    <g transform="translate(50, 40)">
+        <text x="25" y="45" fill="#ffffff" font-size="32" font-weight="600">GitHub Stats</text>
+        <text x="25" y="100" fill="#dddddd" font-size="24">Repositories</text>
+        <text x="360" y="100" fill="#ffffff" font-size="24" font-weight="600" text-anchor="end">${stats.repos}</text>
+        <text x="25" y="140" fill="#dddddd" font-size="24">Followers</text>
+        <text x="360" y="140" fill="#ffffff" font-size="24" font-weight="600" text-anchor="end">${stats.followers}</text>
+        <text x="25" y="180" fill="#dddddd" font-size="24">Stars Earned</text>
+        <text x="360" y="180" fill="#ffffff" font-size="24" font-weight="600" text-anchor="end">${stats.stars}+</text>
+        <text x="25" y="220" fill="#dddddd" font-size="24">Contributions</text>
+        <text x="360" y="220" fill="#ffffff" font-size="24" font-weight="600" text-anchor="end">${stats.contributions}+</text>
+        <text x="25" y="260" fill="#dddddd" font-size="24">Pull Requests</text>
+        <text x="360" y="260" fill="#ffffff" font-size="24" font-weight="600" text-anchor="end">${stats.prs}</text>
+        <text x="25" y="300" fill="#dddddd" font-size="24">Issues</text>
+        <text x="360" y="300" fill="#ffffff" font-size="24" font-weight="600" text-anchor="end">${stats.issues}</text>
+        <text x="450" y="45" fill="#ffffff" font-size="32" font-weight="600">Top Languages</text>
+        <circle cx="560" cy="180" r="75" fill="transparent" stroke="#3178c6" stroke-width="40" stroke-dasharray="250 471" />
+        <circle cx="560" cy="180" r="75" fill="transparent" stroke="#f1e05a" stroke-width="40" stroke-dasharray="150 471" stroke-dashoffset="-250" />
+        <circle cx="560" cy="180" r="75" fill="transparent" stroke="#3572A5" stroke-width="40" stroke-dasharray="71 471" stroke-dashoffset="-400" />
         
-        <circle cx="600" cy="110" r="6" fill="#3178c6"/>
-        <text x="620" y="115" fill="#dddddd" font-size="16">TypeScript</text>
-        <text x="730" y="115" fill="#ffffff" font-size="16" font-weight="600">33%</text>
+        <circle cx="750" cy="140" r="10" fill="#3178c6"/>
+        <text x="780" y="148" fill="#dddddd" font-size="24">TypeScript</text>
+        <text x="940" y="148" fill="#ffffff" font-size="24" font-weight="600">33%</text>
 
-        <circle cx="600" cy="150" r="6" fill="#f1e05a"/>
-        <text x="620" y="155" fill="#dddddd" font-size="16">JavaScript</text>
-        <text x="730" y="155" fill="#ffffff" font-size="16" font-weight="600">23%</text>
+        <circle cx="750" cy="190" r="10" fill="#f1e05a"/>
+        <text x="780" y="198" fill="#dddddd" font-size="24">JavaScript</text>
+        <text x="940" y="198" fill="#ffffff" font-size="24" font-weight="600">23%</text>
 
-        <circle cx="600" cy="190" r="6" fill="#3572A5"/>
-        <text x="620" y="195" fill="#dddddd" font-size="16">Python</text>
-        <text x="730" y="195" fill="#ffffff" font-size="16" font-weight="600">18%</text>
+        <circle cx="750" cy="240" r="10" fill="#3572A5"/>
+        <text x="780" y="248" fill="#dddddd" font-size="24">Python</text>
+        <text x="940" y="248" fill="#ffffff" font-size="24" font-weight="600">18%</text>
     </g>
 </svg>`;
 }
@@ -280,14 +280,14 @@ async function generateSkills() {
     }));
 
     let badges = '';
-    const badgeWidth = 180;
-    const badgeHeight = 55;
+    const badgeWidth = 220;
+    const badgeHeight = 70;
     const paddingX = 15;
     const paddingY = 15;
     
     // Calculate rows
-    const itemsPerRow = 6;
-    let y = 80;
+    const itemsPerRow = 5;
+    let y = 100;
     
     for (let i = 0; i < skillsWithB64.length; i += itemsPerRow) {
         const rowItems = skillsWithB64.slice(i, i + itemsPerRow);
@@ -298,13 +298,13 @@ async function generateSkills() {
             const skill = rowItems[j];
             let imageTag = '';
             if (skill.b64) {
-                imageTag = `<image href="${skill.b64}" x="20" y="13" width="30" height="30"/>`;
+                imageTag = `<image href="${skill.b64}" x="25" y="15" width="40" height="40"/>`;
             }
             badges += `
         <g transform="translate(${x}, ${y})">
-            <rect width="180" height="55"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" rx="0" />
+            <rect width="220" height="70"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" rx="0" />
             ${imageTag}
-            <text x="60" y="34" fill="#dddddd" font-size="18" font-weight="500">${skill.name}</text>
+            <text x="80" y="44" fill="#dddddd" font-size="24" font-weight="500">${skill.name}</text>
         </g>`;
             x += badgeWidth + paddingX;
         }
@@ -314,7 +314,7 @@ async function generateSkills() {
     return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y + 30}" viewBox="0 0 1200 ${y + 30}">
     ${COMMON_DEFS}
     <rect width="1200" height="${y + 30}" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
-    <text x="50" y="45" fill="#ffffff" font-size="28" font-weight="600">Skills &amp; Tools</text>
+    <text x="50" y="60" fill="#ffffff" font-size="36" font-weight="600">Skills &amp; Tools</text>
     ${badges}
 </svg>`;
 }
@@ -323,9 +323,9 @@ async function generateSkills() {
 
 async function generateViewAllCard() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="60" viewBox="0 0 1200 60">
-    <rect width="1200" height="60" fill="#FFD700" rx="0" />
-    <text x="600" y="38" fill="#000000" font-size="22" font-family="'Space Grotesk', sans-serif" font-weight="700" text-anchor="middle">View All Repositories</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="100" viewBox="0 0 1200 100">
+    <rect width="1200" height="100" fill="#FFD700" rx="0" />
+    <text x="600" y="60" fill="#000000" font-size="32" font-family="'Space Grotesk', sans-serif" font-weight="700" text-anchor="middle">View All Repositories</text>
 </svg>`;
 }
 
