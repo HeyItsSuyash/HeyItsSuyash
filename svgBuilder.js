@@ -41,7 +41,7 @@ async function generateHero() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450">
     ${COMMON_DEFS}
-    <rect width="1200" height="450" fill="#000000" rx="15" />
+    <rect width="1200" height="450" fill="#000000" rx="0" />
     <text x="600" y="250" text-anchor="middle" fill="rgba(255,255,255,0.03)" font-size="280" font-weight="700" letter-spacing="15">SUYASH</text>
     
     <!-- Navbar (Static Visuals) -->
@@ -65,7 +65,7 @@ async function generateHero() {
 
     <!-- Right Side Info -->
     <g transform="translate(900, 150)">
-        <rect width="250" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="15" />
+        <rect width="250" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="0" />
         <text x="25" y="45" fill="#ffffff" font-size="18" font-weight="600">Location</text>
         <text x="25" y="70" fill="#dddddd" font-size="16">India 📍</text>
         <text x="25" y="115" fill="#ffffff" font-size="18" font-weight="600">Focus</text>
@@ -86,9 +86,9 @@ async function generateAbout() {
             <animate attributeName="width" from="0" to="900" dur="4s" fill="freeze" />
         </rect>
     </clipPath>
-    <rect width="1200" height="220" fill="#000000" rx="15" />
+    <rect width="1200" height="220" fill="#000000" rx="0" />
     <g transform="translate(50, 20)">
-        <rect width="1100" height="180"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="15" />
+        <rect width="1100" height="180"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="0" />
         <circle cx="60" cy="60" r="30" fill="rgba(255,255,255,0.1)"/>
         <image href="${logoB64}" x="40" y="40" width="40" height="40" />
         <text x="120" y="65" fill="#ffffff" font-size="28" font-weight="600">About Me</text>
@@ -132,9 +132,9 @@ async function generateSocial(platform) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 300 100">
     ${COMMON_DEFS}
-    <rect width="300" height="100" fill="#000000" rx="15" />
+    <rect width="300" height="100" fill="#000000" rx="0" />
     <g transform="translate(15, 10)">
-        <rect width="270" height="80"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="15" />
+        <rect width="270" height="80"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="0" />
         ${imageTag}
         <text x="75" y="40" fill="#ffffff" font-size="18" font-weight="600">${c.name}</text>
         <text x="75" y="60" fill="#dddddd" font-size="14">${c.text}</text>
@@ -176,7 +176,7 @@ function wrapText(text, maxChars) {
 
 async function generateProjectCard(repo) {
     if (!repo) {
-        return `<svg xmlns="http://www.w3.org/2000/svg" width="414" height="200" viewBox="0 0 414 200"><rect width="414" height="200" fill="#000000" rx="15" /></svg>`;
+        return `<svg xmlns="http://www.w3.org/2000/svg" width="414" height="200" viewBox="0 0 414 200"><rect width="414" height="200" fill="#000000" rx="0" /></svg>`;
     }
     const langColor = { "JavaScript": "#f1e05a", "Python": "#3572A5", "TypeScript": "#3178c6", "HTML": "#e34c26" };
     const color = repo.language ? (langColor[repo.language] || "#cccccc") : "#cccccc";
@@ -187,9 +187,9 @@ async function generateProjectCard(repo) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
     ${COMMON_DEFS}
-    <rect width="600" height="200" fill="#000000" rx="15" />
+    <rect width="600" height="200" fill="#000000" rx="0" />
     <g transform="translate(15, 10)">
-        <rect width="570" height="180" fill="#000000" stroke="#FFD700" stroke-width="1" rx="15" />
+        <rect width="570" height="180" fill="#000000" stroke="#FFD700" stroke-width="1" rx="0" />
         <text x="20" y="40" fill="#ffffff" font-size="20" font-weight="600">${repo.name}</text>
         
         <text x="20" y="75" fill="#aaaaaa" font-size="14" font-family="'Space Grotesk', sans-serif">
@@ -208,10 +208,10 @@ async function generateStats(stats) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
     ${COMMON_DEFS}
-    <rect width="1200" height="300" fill="#000000" rx="15" />
+    <rect width="1200" height="300" fill="#000000" rx="0" />
     
     <g transform="translate(50, 20)">
-        <rect x="0" y="0" width="350" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="15" />
+        <rect x="0" y="0" width="350" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="0" />
         <text x="25" y="45" fill="#ffffff" font-size="22" font-weight="600">GitHub Stats</text>
         <text x="25" y="80" fill="#dddddd" font-size="18">Repositories</text>
         <text x="320" y="80" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.repos}</text>
@@ -226,7 +226,7 @@ async function generateStats(stats) {
         <text x="25" y="230" fill="#dddddd" font-size="18">Issues</text>
         <text x="320" y="230" fill="#ffffff" font-size="18" font-weight="600" text-anchor="end">${stats.issues}</text>
         
-        <rect x="380" y="0" width="720" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="15" />
+        <rect x="380" y="0" width="720" height="250"  fill="#000000" stroke="rgba(255,215,0,0.3)"  stroke-width="1" rx="0" />
         <text x="405" y="45" fill="#ffffff" font-size="22" font-weight="600">Top Languages</text>
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#3178c6" stroke-width="25" stroke-dasharray="100 214" />
         <circle cx="480" cy="140" r="50" fill="transparent" stroke="#f1e05a" stroke-width="25" stroke-dasharray="80 234" stroke-dashoffset="-100" />
@@ -304,10 +304,14 @@ async function generateSkills() {
         
         for (let j = 0; j < rowItems.length; j++) {
             const skill = rowItems[j];
+            let imageTag = '';
+            if (skill.b64) {
+                imageTag = `<image href="${skill.b64}" x="20" y="13" width="30" height="30"/>`;
+            }
             badges += `
         <g transform="translate(${x}, ${y})">
-            <rect width="180" height="55"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" />
-            <image href="${skill.b64}" x="20" y="13" width="30" height="30"/>
+            <rect width="180" height="55"  fill="#111111" stroke="rgba(255,215,0,0.3)" stroke-width="1" rx="0" />
+            ${imageTag}
             <text x="60" y="34" fill="#dddddd" font-size="18" font-weight="500">${skill.name}</text>
         </g>`;
             x += badgeWidth + paddingX;
@@ -317,7 +321,7 @@ async function generateSkills() {
 
     return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${y + 30}" viewBox="0 0 1200 ${y + 30}">
     ${COMMON_DEFS}
-    <rect width="1200" height="${y + 30}" fill="#000000" rx="15" />
+    <rect width="1200" height="${y + 30}" fill="#000000" rx="0" />
     <text x="50" y="45" fill="#ffffff" font-size="28" font-weight="600">Skills &amp; Tools</text>
     ${badges}
 </svg>`;
