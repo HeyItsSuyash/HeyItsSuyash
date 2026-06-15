@@ -16,8 +16,8 @@ async function getBase64Image(url) {
 const COMMON_DEFS = `
     <defs>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap');
-            text { font-family: 'Space Grotesk', sans-serif; }
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&amp;display=swap');
+            text { font-family: 'Montserrat', sans-serif; }
             @keyframes breathe { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
             .animated-avatar { transform-origin: center bottom; animation: breathe 5s ease-in-out infinite; }
             @keyframes type { from { width: 0; } to { width: 900px; } }
@@ -131,7 +131,7 @@ async function generateSocial(platform) {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="120" viewBox="0 0 300 120">
     ${COMMON_DEFS}
-    <rect width="300" height="120" fill="#000000" stroke="#FFD700" stroke-width="8" rx="0" />
+    <rect width="300" height="120" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
     ${imageTag}
     <text x="100" y="55" fill="#ffffff" font-size="22" font-weight="600">${c.name}</text>
     <text x="100" y="80" fill="#dddddd" font-size="18">${c.text}</text>
@@ -177,23 +177,23 @@ async function generateProjectCard(repo) {
     const langColor = { "JavaScript": "#f1e05a", "Python": "#3572A5", "TypeScript": "#3178c6", "HTML": "#e34c26" };
     const color = repo.language ? (langColor[repo.language] || "#cccccc") : "#cccccc";
     
-    const lines = wrapText(escapeXml(repo.readme_snippet), 40).slice(0, 3); // Max 3 lines
-    const textTspans = lines.map((l, i) => `<tspan x="20" dy="${i === 0 ? 0 : 30}">${l}</tspan>`).join('');
+    const lines = wrapText(escapeXml(repo.readme_snippet), 30).slice(0, 5); // Max 5 lines
+    const textTspans = lines.map((l, i) => `<tspan x="25" dy="${i === 0 ? 0 : 40}">${l}</tspan>`).join('');
 
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280">
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750">
     ${COMMON_DEFS}
-    <rect width="600" height="280" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
+    <rect width="600" height="750" fill="#000000" stroke="rgba(255,215,0,0.3)" stroke-width="2" rx="0" />
     <g transform="translate(15, 10)">
-        <text x="25" y="50" fill="#ffffff" font-size="28" font-weight="600">${repo.name}</text>
+        <text x="25" y="80" fill="#ffffff" font-size="40" font-weight="800">${repo.name}</text>
         
-        <text x="25" y="100" fill="#aaaaaa" font-size="20" font-family="'Space Grotesk', sans-serif">
+        <text x="25" y="150" fill="#aaaaaa" font-size="28" font-family="'Montserrat', sans-serif">
             ${textTspans}
         </text>
 
-        <circle cx="25" cy="225" r="8" fill="${color}"/>
-        <text x="45" y="232" fill="#dddddd" font-size="20">${repo.language || "Code"}</text>
-        <text x="160" y="232" fill="#FFD700" font-size="20">★ ${repo.stargazers_count}</text>
+        <circle cx="25" cy="700" r="12" fill="${color}"/>
+        <text x="45" y="708" fill="#dddddd" font-size="24" font-weight="600">${repo.language || "Code"}</text>
+        <text x="180" y="708" fill="#FFD700" font-size="24" font-weight="800">★ ${repo.stargazers_count}</text>
     </g>
 </svg>`;
 }
@@ -324,8 +324,8 @@ async function generateSkills() {
 async function generateViewAllCard() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="100" viewBox="0 0 1200 100">
-    <rect width="1200" height="100" fill="#FFD700" rx="0" />
-    <text x="600" y="60" fill="#000000" font-size="32" font-family="'Space Grotesk', sans-serif" font-weight="700" text-anchor="middle">View All Repositories</text>
+    <rect width="1200" height="100" fill="#000000" rx="0" />
+    <text x="600" y="60" fill="#FFD700" font-size="32" font-family="'Montserrat', sans-serif" font-weight="800" text-anchor="middle">View All Repositories</text>
 </svg>`;
 }
 
